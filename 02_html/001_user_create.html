@@ -252,26 +252,11 @@
 		    </div>
 		</form>
 		<div class="btn-area">
-	    	<button class="btn-danger" onclick="doSave();">저장</button>
+	    	<button class="btn-danger">저장</button>
 	    	<button class="btn-default">취소</button>
 	    </div>
 	</div>
 
-	<!-- Script 작성 영역 -->
-    <script>
-    	function doSave(){
-    		var id = document.getElementById('userid').value;
-    		var id2 = document.getElementsByName('userid')[0].value;
-    		
-    		if(id == ''){
-    			alert('아이디를 입력하세요.');
-    			document.getElementById('userid').focus();
-    			return;
-    		}
-
-    		document.location.href = '002_user_detail.html';
-    	}
-    </script>
 </body>
 
 </html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML</title>
+</head>
+
+<body>
+    Text:
+    <br>
+    <input type="text" id="text1">
+    <br> Checkbox:
+    <br>
+    <label>
+        <input type="checkbox" name="chk_interest" value="it"> IT/컴퓨터</label>
+    <label>
+        <input type="checkbox" name="chk_interest" value="entertainment"> 엔터테인먼트</label>
+    <label>
+        <input type="checkbox" name="chk_interest" value="sports"> 스포츠</label>
+    <label>
+        <input type="checkbox" name="chk_interest" value="shoping"> 쇼핑</label>
+    <label>
+        <input type="checkbox" name="chk_interest" value="book"> 도서/책</label>
+    <br> Radio:
+    <br>
+    <label>
+        <input type="radio" name="radio_email_yn" value="Y" checked> 동의</label>
+    <label>
+        <input type="radio" name="radio_email_yn" value="N"> 거부</label>
+    <br> Email:
+    <br>
+    <select id="select1">
+        <option value="KO">Korea</option>
+        <option value="CN">China</option>
+        <option value="JP">Japan</option>
+    </select>
+    
+    <br>
+    <button onclick="changeStyle();">Change Style</button>
+    <script>
+    function changeStyle(){
+        var oText1 = document.getElementById('text1');
+        var oText2 = document.querySelector('#text1');
+        var oCheckbox = document.getElementsByName('chk_interest');
+        var oCheckbox2 = document.querySelectorAll('[name=chk_interest]');
+        var oRadio = document.getElementsByName('radio_email_yn');
+        var oRadio2 = document.querySelectorAll('[name=radio_email_yn]');
+        var oSelect = document.getElementById('select1');
+
+       
+
+    }
+    </script>
+</body>
+
+</html>
