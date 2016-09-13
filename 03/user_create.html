@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 2주차 수업</title>
+    <style>
+    .container{
+		width: 700px;
+		margin:20px auto;
+    }
+
+    .title {
+    	text-align: center;
+    }
+
+    .sub-title {
+    	border-left:4px solid #7b7b7b;
+    	padding-left:5px;
+    }
+    
+    .user-table {
+        width: 700px;
+        border-top: 3px solid #7b7b7b;
+        border-bottom: 1px solid #7b7b7b;
+        table-layout: fixed;
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+    
+    .user-table tr {
+        height: 25px;
+    }
+    
+    .user-table td {
+        font-size: 12px;
+        padding: 5px 5px 4px 5px;
+        border-bottom: 1px dotted #cbcbcb;
+        white-space: nowrap;
+    }
+
+    .asterisk:after{
+	    content:"\002a";
+	  padding: 8px 5px 0px;
+	    color: #bb162b;
+	}
+
+	.btn-default{
+		color: inherit;
+  		background: white;
+  		border: 1px solid #e7eaec;
+		border-radius: 5px;
+	}
+
+	.btn-default:hover{
+		color: inherit;
+  		border: 1px solid #d2d2d2;
+  		border-radius: 5px;
+	}
+
+	.btn-primary{
+		background-color: #1c84c6;
+		border-color: #1c84c6;
+		color: #FFFFFF;
+		border-radius: 5px;
+	}
+
+	.btn-primary:hover{
+		background-color: #1a7bb9;
+  		border-color: #1a7bb9;
+  		color: #FFFFFF;
+  		border-radius: 5px;
+	}
+
+	.btn-danger{
+		background-color: #ed5565;
+  		border-color: #ed5565;
+  		color: #FFFFFF;
+		border-radius: 5px;
+	}
+
+	.btn-danger:hover{
+		background-color: #ec4758;
+  		border-color: #ec4758;
+  		color: #FFFFFF;
+  		border-radius: 5px;
+	}
+
+	.btn-area{
+		text-align: center;
+		margin-top:20px;
+	}
+    </style>
+</head>
+
+<body>
+	<div class="container">
+		<h3 class="title">회원가입</h3>
+		<form>
+		    <div>
+		        <h4 class="sub-title">기본정보</h4>
+		        <table class="user-table">
+		        	<colgroup>
+		        		<col style="width:30%;">
+		        		<col style="width:70%;">
+		        	</colgroup>
+		            <tr>
+		                <td>
+		                    <label>아이디<span style="padding: 8px 5px 0px;color: #bb162b;">*</span></label>
+		                </td>
+		                <td>
+		                    <input type="text" maxlength="14" size="14" id="userid" name="userid" autofocus> <input type="button" value="중복검사" class="btn-primary">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">비밀번호</label>
+		                </td>
+		                <td>
+		                    <input type="password">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">비밀번호확인</label>
+		                </td>
+		                <td>
+		                    <input type="password">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">이름</label>
+		                </td>
+		                <td>
+		                    <input type="text">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">이메일주소</label>
+		                </td>
+		                <td>
+		                    <input type="email">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">주민등록번호</label>
+		                </td>
+		                <td>
+		                    <input type="text" maxlength="6" size="6">-
+		                    <input type="password" maxlength="7" size="7">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>생년월일</label>
+		                </td>
+		                <td>
+		                    <input type="date">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>성별</label>
+		                </td>
+		                <td>
+		                    <label><input type="radio" name="gender" checked> 남자</label>
+		                    <label><input type="radio" name="gender"> 여자</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">주소</label>
+		                </td>
+		                <td>
+		                    <input type="text" maxlength="5" size="5"> <input type="button" value="찾아보기" class="btn-primary">
+		                    <br>
+		                    <input type="text" style="width:90%;" placeholder="주소(국가/도/시/도로명/번지)">
+		                    <br>
+		                    <input type="text" style="width:90%;" placeholder="나머지주소(건물명/층수)">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">핸드폰</label>
+		                </td>
+		                <td>
+		                    <input type="text" maxlength="3" size="3">-
+		                    <input type="text" maxlength="4" size="4">-
+		                    <input type="text" maxlength="4" size="4">
+		                </td>
+		            </tr>
+		        </table>
+		    </div>
+		    <div>
+		        <h4 class="sub-title">추가정보</h4>
+		        <table class="user-table">
+		        	<colgroup>
+		        		<col style="width:30%;">
+		        		<col style="width:70%;">
+		        	</colgroup>
+		            <tr>
+		                <td>
+		                    <label>홈페이지</label>
+		                </td>
+		                <td>
+		                    <input type="url" style="width:90%;">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>혼인여부</label>
+		                </td>
+		                <td>
+		                    <label><input type="radio" name="gender"> 기혼</label>
+		                    <label><input type="radio" name="gender"> 미혼</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>관심분야</label>
+		                </td>
+		                <td>
+		                    <label><input type="checkbox"> IT/컴퓨터</label>
+		                    <label><input type="checkbox"> 엔터테인먼트</label>
+		                    <label><input type="checkbox"> 스포츠</label>
+		                    <label><input type="checkbox"> 쇼핑</label>
+		                    <label><input type="checkbox"> 도서/책</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>메일수신동의</label>
+		                </td>
+		                <td>
+		                    <label><input type="radio" name="email_yn" checked> 동의</label>
+		                    <label><input type="radio" name="email_yn"> 거부</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>문자수신동의</label>
+		                </td>
+		                <td>
+		                    <label><input type="radio" name="msg_yn" checked> 동의</label>
+		                    <label><input type="radio" name="msg_yn"> 거부</label>
+		                </td>
+		            </tr>
+		        </table>
+		    </div>
+		</form>
+		<div class="btn-area">
+	    	<button class="btn-danger" onclick="doSave();">저장</button>
+	    	<button class="btn-default">취소</button>
+	    </div>
+	</div>
+
+	<!-- Script 작성 영역 -->
+    <script>
+    	function doSave(){
+    		var id = document.getElementById('userid').value;
+    		var id2 = document.getElementsByName('userid')[0].value;
+    		
+    		if(id == ''){
+    			alert('아이디를 입력하세요.');
+    			document.getElementById('userid').focus();
+    		}
+    	}
+    </script>
+</body>
+
+</html>
