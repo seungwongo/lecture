@@ -95,7 +95,7 @@
 
 <body>
 	<div class="container">
-		<h3 class="title">회원정보수정</h3>
+		<h3 class="title">회원가입</h3>
 		<form>
 		    <div>
 		        <h4 class="sub-title">기본정보</h4>
@@ -109,20 +109,12 @@
 		                    <label>아이디<span style="padding: 8px 5px 0px;color: #bb162b;">*</span></label>
 		                </td>
 		                <td>
-		                    paullab0001
+		                    <input type="text" maxlength="14" size="14" id="userid" name="userid" autofocus> <input type="button" value="중복검사" class="btn-primary">
 		                </td>
 		            </tr>
 		            <tr>
 		                <td>
-		                    <label class="asterisk">현재 비밀번호</label>
-		                </td>
-		                <td>
-		                    <input type="password">
-		                </td>
-		            </tr>
-		            <tr>
-		                <td>
-		                    <label class="asterisk">새비밀번호</label>
+		                    <label class="asterisk">비밀번호</label>
 		                </td>
 		                <td>
 		                    <input type="password">
@@ -141,7 +133,7 @@
 		                    <label class="asterisk">이름</label>
 		                </td>
 		                <td>
-		                    홍길동
+		                    <input type="text">
 		                </td>
 		            </tr>
 		            <tr>
@@ -149,7 +141,7 @@
 		                    <label class="asterisk">이메일주소</label>
 		                </td>
 		                <td>
-		                    <input type="email" value="gildong@gmail.com">
+		                    <input type="email">
 		                </td>
 		            </tr>
 		            <tr>
@@ -157,7 +149,8 @@
 		                    <label class="asterisk">주민등록번호</label>
 		                </td>
 		                <td>
-		                    951201-*******
+		                    <input type="text" maxlength="6" size="6">-
+		                    <input type="password" maxlength="7" size="7">
 		                </td>
 		            </tr>
 		            <tr>
@@ -165,7 +158,7 @@
 		                    <label>생년월일</label>
 		                </td>
 		                <td>
-		                    1995년 2월 18일
+		                    <input type="date">
 		                </td>
 		            </tr>
 		            <tr>
@@ -173,7 +166,8 @@
 		                    <label>성별</label>
 		                </td>
 		                <td>
-		                    남자
+		                    <label><input type="radio" name="gender" checked> 남자</label>
+		                    <label><input type="radio" name="gender"> 여자</label>
 		                </td>
 		            </tr>
 		            <tr>
@@ -193,9 +187,9 @@
 		                    <label class="asterisk">핸드폰</label>
 		                </td>
 		                <td>
-		                    <input type="text" maxlength="3" size="3" value="010">-
-		                    <input type="text" maxlength="4" size="4" value="1234">-
-		                    <input type="text" maxlength="4" size="4" value="2222">
+		                    <input type="text" maxlength="3" size="3">-
+		                    <input type="text" maxlength="4" size="4">-
+		                    <input type="text" maxlength="4" size="4">
 		                </td>
 		            </tr>
 		        </table>
@@ -212,7 +206,7 @@
 		                    <label>홈페이지</label>
 		                </td>
 		                <td>
-		                    <input type="url" style="width:90%;" value="http://gildong.co.kr">
+		                    <input type="url" style="width:90%;">
 		                </td>
 		            </tr>
 		            <tr>
@@ -221,7 +215,7 @@
 		                </td>
 		                <td>
 		                    <label><input type="radio" name="gender"> 기혼</label>
-		                    <label><input type="radio" name="gender" checked> 미혼</label>
+		                    <label><input type="radio" name="gender"> 미혼</label>
 		                </td>
 		            </tr>
 		            <tr>
@@ -229,8 +223,8 @@
 		                    <label>관심분야</label>
 		                </td>
 		                <td>
-		                    <label><input type="checkbox" checked> IT/컴퓨터</label>
-		                    <label><input type="checkbox" checked> 엔터테인먼트</label>
+		                    <label><input type="checkbox"> IT/컴퓨터</label>
+		                    <label><input type="checkbox"> 엔터테인먼트</label>
 		                    <label><input type="checkbox"> 스포츠</label>
 		                    <label><input type="checkbox"> 쇼핑</label>
 		                    <label><input type="checkbox"> 도서/책</label>
@@ -250,8 +244,8 @@
 		                    <label>문자수신동의</label>
 		                </td>
 		                <td>
-		                    <label><input type="radio" name="msg_yn"> 동의</label>
-		                    <label><input type="radio" name="msg_yn" checked> 거부</label>
+		                    <label><input type="radio" name="msg_yn" checked> 동의</label>
+		                    <label><input type="radio" name="msg_yn"> 거부</label>
 		                </td>
 		            </tr>
 		        </table>
@@ -259,18 +253,23 @@
 		</form>
 		<div class="btn-area">
 	    	<button class="btn-danger" onclick="doSave();">저장</button>
-	    	<button class="btn-default" onclick="goList();">리스트</button>
+	    	<button class="btn-default">취소</button>
 	    </div>
 	</div>
 
 	<!-- Script 작성 영역 -->
     <script>
     	function doSave(){
+    		var id = document.getElementById('userid').value;
+    		var id2 = document.getElementsByName('userid')[0].value;
+    		
+    		if(id == ''){
+    			alert('아이디를 입력하세요.');
+    			document.getElementById('userid').focus();
+    			return;
+    		}
 
-    	}
-
-    	function goList(){
-    		window.location.href = 'user_list.html';
+    		document.location.href = '002_user_detail.html';
     	}
     </script>
 </body>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML</title>
+</head>
+
+<body>
+    Text:
+    <br>
+    <input type="text" id="text1" onblur="blurInputText(this.value);">
+    <br> Select:
+    <br>
+    <select id="select1" onchange="changeSelect(this.value);">
+        <option value="KO">Korea</option>
+        <option value="CN">China</option>
+        <option value="JP">Japan</option>
+    </select>
+    <br>
+    Number:
+    <br>
+    <input type="text" id="text2" onkeydown="keydownInputText(event);">
+    <br>
+	<button onclick="clickButton();">Click</button>
+	<br>
+
+
+    <script>
+    function blurInputText(val){
+    	alert(val);
+    }
+
+    function changeSelect(val){
+    	alert(val);
+    }
+
+    function keydownInputText(event){
+        var key = event.which || event.keyCode;
+
+        if((key >= 48 && key <= 57) || (key >= 96 && key <= 105) || key==9 || key==8 || key==13 || key==37 || key==39 || key==46 || key==109 || key==189){
+            return true;
+        }else {
+            if(window.event){
+                if(event.preventDefault) event.preventDefault();
+                else event.returnValue = false;
+            }else e.preventDefault();
+        }
+    }
+
+    function clickButton(){
+    	var text1 = document.getElementById('text1').value;
+    	var select1 = document.querySelector('#select1').value;
+
+    	alert(text1);
+    	alert(select1);
+    }
+    </script>
+</body>
+
+</html>

@@ -266,7 +266,10 @@
     		if(id == ''){
     			alert('아이디를 입력하세요.');
     			document.getElementById('userid').focus();
+    			return;
     		}
+
+    		document.location.href = '002_user_detail.html';
     	}
     </script>
 </body>

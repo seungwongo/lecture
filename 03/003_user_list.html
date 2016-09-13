@@ -186,7 +186,7 @@
 <body>
     <div class="container">
         <div>
-            <h4 class="sub-title">사용자 조회 <div class="pull-right"><button class="btn-primary">조회</button><button class="btn-danger" style="margin-left:5px;" onclick="goCreate();">사용자생성</button></div></h4>
+            <h4 class="sub-title">사용자 조회 <div class="pull-right"><button class="btn-primary" onclick="doSearch();">조회</button><button class="btn-danger" style="margin-left:5px;" onclick="goCreate();">사용자생성</button></div></h4>
             <table class="search-table">
                 <colgroup>
                     <col style="width:12%;">
@@ -235,7 +235,7 @@
             </table>
         </div>
         <div style="margin-top:10px;">
-            <table class="list-table">
+            <table class="list-table" id="grid1">
                 <thead>
                     <tr>
                         <th>아이디</th>
@@ -249,86 +249,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr onclick="goDetail();">
-                        <td>paullab001</td>
-                        <td class="text-center">홍길동</td>
-                        <td>gildong@gmail.com</td>
-                        <td class="text-center">010-1111-2222</td>
-                        <td class="text-center">남자</td>
-                        <td class="text-center">1995.02.16</td>
-                        <td class="text-center">동의</td>
-                        <td class="text-center">거부</td>
-                    </tr>
-                    <tr onclick="goDetail();">
-                        <td>paullab001</td>
-                        <td class="text-center">홍길동</td>
-                        <td>gildong@gmail.com</td>
-                        <td class="text-center">010-1111-2222</td>
-                        <td class="text-center">남자</td>
-                        <td class="text-center">1995.02.16</td>
-                        <td class="text-center">동의</td>
-                        <td class="text-center">거부</td>
-                    </tr>
-                    <tr onclick="goDetail();">
-                        <td>paullab001</td>
-                        <td class="text-center">홍길동</td>
-                        <td>gildong@gmail.com</td>
-                        <td class="text-center">010-1111-2222</td>
-                        <td class="text-center">남자</td>
-                        <td class="text-center">1995.02.16</td>
-                        <td class="text-center">동의</td>
-                        <td class="text-center">거부</td>
-                    </tr>
-                    <tr onclick="goDetail();">
-                        <td>paullab001</td>
-                        <td class="text-center">홍길동</td>
-                        <td>gildong@gmail.com</td>
-                        <td class="text-center">010-1111-2222</td>
-                        <td class="text-center">남자</td>
-                        <td class="text-center">1995.02.16</td>
-                        <td class="text-center">동의</td>
-                        <td class="text-center">거부</td>
-                    </tr>
-                    <tr onclick="goDetail();">
-                        <td>paullab001</td>
-                        <td class="text-center">홍길동</td>
-                        <td>gildong@gmail.com</td>
-                        <td class="text-center">010-1111-2222</td>
-                        <td class="text-center">남자</td>
-                        <td class="text-center">1995.02.16</td>
-                        <td class="text-center">동의</td>
-                        <td class="text-center">거부</td>
-                    </tr>
-                    <tr onclick="goDetail();">
-                        <td>paullab001</td>
-                        <td class="text-center">홍길동</td>
-                        <td>gildong@gmail.com</td>
-                        <td class="text-center">010-1111-2222</td>
-                        <td class="text-center">남자</td>
-                        <td class="text-center">1995.02.16</td>
-                        <td class="text-center">동의</td>
-                        <td class="text-center">거부</td>
-                    </tr>
-                    <tr onclick="goDetail();">
-                        <td>paullab001</td>
-                        <td class="text-center">홍길동</td>
-                        <td>gildong@gmail.com</td>
-                        <td class="text-center">010-1111-2222</td>
-                        <td class="text-center">남자</td>
-                        <td class="text-center">1995.02.16</td>
-                        <td class="text-center">동의</td>
-                        <td class="text-center">거부</td>
-                    </tr>
-                    <tr onclick="goDetail();">
-                        <td>paullab001</td>
-                        <td class="text-center">홍길동</td>
-                        <td>gildong@gmail.com</td>
-                        <td class="text-center">010-1111-2222</td>
-                        <td class="text-center">남자</td>
-                        <td class="text-center">1995.02.16</td>
-                        <td class="text-center">동의</td>
-                        <td class="text-center">거부</td>
-                    </tr>
                 </tbody>
             </table>
             <div class="paginate">
@@ -343,20 +263,42 @@
     </div>
     <!-- Script 작성 영역 -->
     <script>
+        var data = [
+            {"USER_ID":"paullab001","USER_NAME":"홍길동","EMAIL":"gildong@gmail.com","MOBILE":"010-1111-2222","GENDER":"남자","BIRTH_DATE":"19950216","EMAIL_YN":"동의","MSG_YN":"동의"},
+            {"USER_ID":"paullab002","USER_NAME":"김철수","EMAIL":"cskim@gmail.com","MOBILE":"010-3333-4444","GENDER":"남자","BIRTH_DATE":"19900709","EMAIL_YN":"동의","MSG_YN":"거부"}
+        ];
+
         function doSearch(){
             var userid = document.getElementById('userid').value;
             var username = document.getElementById('username').value;
             var sel_email_yn = document.getElementById('sel_email_yn').value;
             var sel_msg_yn = document.getElementById('sel_msg_yn').value;
-            
+
+            var h = [];
+            var len = data.length;
+            for(var i=0 ; i<len ; i++){
+                h.push('<tr onclick="goDetail(\'' + data[i]['USER_ID'] + '\');">');
+                h.push('<td>' + data[i]['USER_ID'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['USER_NAME'] + '</td>');
+                h.push('<td>' + data[i]['EMAIL'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['MOBILE'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['GENDER'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['BIRTH_DATE'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['EMAIL_YN'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['MSG_YN'] + '</td>');
+                h.push('</tr>');
+            }
+
+            document.querySelector('#grid1 > tbody').innerHTML = h.join('');
         }
 
     	function goCreate(){
-    		document.location.href = 'user_create.html';
+    		document.location.href = '001_user_create.html';
     	}
 
-    	function goDetail(){
-    		document.location.href = 'user_detail.html';
+    	function goDetail(userid){
+            alert(userid);
+    		document.location.href = '002_user_detail.html';
     	}
     </script>
 </body>
