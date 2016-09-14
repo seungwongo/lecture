@@ -4,6 +4,19 @@
 <head>
     <meta charset="utf-8">
     <title>웹 프론트엔드 개발 3주차 수업</title>
+    <style>
+    .border-red {
+        border:1px solid red;
+    }
+
+    .border-green {
+        border:1px solid green;
+    }
+
+    .border-default {
+        border-color:none;
+    }
+    </style>
 </head>
 
 <body>
@@ -48,7 +61,9 @@
         var oRadio2 = document.querySelectorAll('[name=radio_email_yn]');
         var oSelect = document.getElementById('select1');
 
-       
+       // oText1.style.border = '1px solid red';
+
+       oText1.className = 'border-default';
 
     }
     </script>

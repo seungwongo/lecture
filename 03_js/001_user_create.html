@@ -10,7 +10,7 @@
 <body>
 	<div class="container">
 		<h3 class="title">회원가입</h3>
-		<form>
+		<form id="form1" name="form1" method="post" action="">
 		    <div>
 		        <h4 class="sub-title">기본정보</h4>
 		        <table class="user-table">
@@ -20,7 +20,7 @@
 		        	</colgroup>
 		            <tr>
 		                <td>
-		                    <label>아이디<span style="padding: 8px 5px 0px;color: #bb162b;">*</span></label>
+		                    <label class="asterisk">아이디</label>
 		                </td>
 		                <td>
 		                    <input type="text" maxlength="14" size="14" id="userid" name="userid" autofocus> <input type="button" value="중복검사" class="btn-primary">
@@ -31,7 +31,7 @@
 		                    <label class="asterisk">비밀번호</label>
 		                </td>
 		                <td>
-		                    <input type="password">
+		                    <input type="password" id="password" name="password">
 		                </td>
 		            </tr>
 		            <tr>
@@ -39,7 +39,7 @@
 		                    <label class="asterisk">비밀번호확인</label>
 		                </td>
 		                <td>
-		                    <input type="password">
+		                    <input type="password" id="confirm_password" name="confirm_password">
 		                </td>
 		            </tr>
 		            <tr>
@@ -47,7 +47,7 @@
 		                    <label class="asterisk">이름</label>
 		                </td>
 		                <td>
-		                    <input type="text">
+		                    <input type="text" id="username" name="username">
 		                </td>
 		            </tr>
 		            <tr>
@@ -55,7 +55,7 @@
 		                    <label class="asterisk">이메일주소</label>
 		                </td>
 		                <td>
-		                    <input type="email">
+		                    <input type="email" id="email" name="email">
 		                </td>
 		            </tr>
 		            <tr>
@@ -63,8 +63,8 @@
 		                    <label class="asterisk">주민등록번호</label>
 		                </td>
 		                <td>
-		                    <input type="text" maxlength="6" size="6">-
-		                    <input type="password" maxlength="7" size="7">
+		                    <input type="text" maxlength="6" size="6" id="social_number1" name="social_number1">-
+		                    <input type="password" maxlength="7" size="7" id="social_number2" name="social_number2">
 		                </td>
 		            </tr>
 		            <tr>
@@ -72,7 +72,7 @@
 		                    <label>생년월일</label>
 		                </td>
 		                <td>
-		                    <input type="date" id="birth_date">
+		                    <input type="date" id="birth_date" name="birth_date">
 		                </td>
 		            </tr>
 		            <tr>
@@ -80,8 +80,8 @@
 		                    <label>성별</label>
 		                </td>
 		                <td>
-		                    <label><input type="radio" name="gender" checked> 남자</label>
-		                    <label><input type="radio" name="gender"> 여자</label>
+		                    <label><input type="radio" name="gender" value="M" checked> 남자</label>
+		                    <label><input type="radio" name="gender" value="F"> 여자</label>
 		                </td>
 		            </tr>
 		            <tr>
@@ -101,9 +101,9 @@
 		                    <label class="asterisk">핸드폰</label>
 		                </td>
 		                <td>
-		                    <input type="text" maxlength="3" size="3">-
-		                    <input type="text" maxlength="4" size="4">-
-		                    <input type="text" maxlength="4" size="4">
+		                    <input type="text" maxlength="3" size="3" id="mobile1" name="mobile1">-
+		                    <input type="text" maxlength="4" size="4" id="mobile2" name="mobile2">-
+		                    <input type="text" maxlength="4" size="4" id="mobile3" name="mobile3">
 		                </td>
 		            </tr>
 		        </table>
@@ -120,7 +120,7 @@
 		                    <label>홈페이지</label>
 		                </td>
 		                <td>
-		                    <input type="url" style="width:90%;">
+		                    <input type="url" style="width:90%;" id="homepage" name="homepage">
 		                </td>
 		            </tr>
 		            <tr>
@@ -128,8 +128,8 @@
 		                    <label>혼인여부</label>
 		                </td>
 		                <td>
-		                    <label><input type="radio" name="gender"> 기혼</label>
-		                    <label><input type="radio" name="gender"> 미혼</label>
+		                    <label><input type="radio" name="marriage_yn" value="Y"> 기혼</label>
+		                    <label><input type="radio" name="marriage_yn" value="N" checked> 미혼</label>
 		                </td>
 		            </tr>
 		            <tr>
@@ -137,11 +137,11 @@
 		                    <label>관심분야</label>
 		                </td>
 		                <td>
-		                    <label><input type="checkbox"> IT/컴퓨터</label>
-		                    <label><input type="checkbox"> 엔터테인먼트</label>
-		                    <label><input type="checkbox"> 스포츠</label>
-		                    <label><input type="checkbox"> 쇼핑</label>
-		                    <label><input type="checkbox"> 도서/책</label>
+		                    <label><input type="checkbox" name="interest_area" value="I001"> IT/컴퓨터</label>
+		                    <label><input type="checkbox" name="interest_area" value="I002"> 엔터테인먼트</label>
+		                    <label><input type="checkbox" name="interest_area" value="I003"> 스포츠</label>
+		                    <label><input type="checkbox" name="interest_area" value="I004"> 쇼핑</label>
+		                    <label><input type="checkbox" name="interest_area" value="I005"> 도서/책</label>
 		                </td>
 		            </tr>
 		            <tr>
@@ -149,8 +149,8 @@
 		                    <label>메일수신동의</label>
 		                </td>
 		                <td>
-		                    <label><input type="radio" name="email_yn" checked> 동의</label>
-		                    <label><input type="radio" name="email_yn"> 거부</label>
+		                    <label><input type="radio" name="email_yn" value="Y" checked> 동의</label>
+		                    <label><input type="radio" name="email_yn" value="N"> 거부</label>
 		                </td>
 		            </tr>
 		            <tr>
@@ -158,8 +158,8 @@
 		                    <label>문자수신동의</label>
 		                </td>
 		                <td>
-		                    <label><input type="radio" name="msg_yn" checked> 동의</label>
-		                    <label><input type="radio" name="msg_yn"> 거부</label>
+		                    <label><input type="radio" name="msg_yn" value="Y" checked> 동의</label>
+		                    <label><input type="radio" name="msg_yn" value="N"> 거부</label>
 		                </td>
 		            </tr>
 		        </table>
@@ -173,17 +173,74 @@
 
 	<!-- Script 작성 영역 -->
     <script>
+
     	function doSave(){
     		var id = document.getElementById('userid').value;
     		var id2 = document.getElementsByName('userid')[0].value;
-    		
+
+    		var name = document.querySelector('#username').value;
+    		var pw = document.querySelector('#password').value;
+    		var cpw = document.querySelector('#confirm_password').value;
+
+    		var email = document.querySelector('#email').value;
+    		var social_number1 = document.querySelector('#social_number1').value;
+    		var social_number2 = document.querySelector('#social_number2').value;
+    		var birth_date = document.querySelector('#birth_date').value;
+    		var oGender = document.querySelectorAll('[name=gender]');
+    		var gender = document.querySelector('[name=gender]:checked').value;
+
+    		var mobile1 = document.querySelector('#mobile1').value;
+    		var mobile2 = document.querySelector('#mobile2').value;
+    		var mobile3 = document.querySelector('#mobile3').value;
+
+    		var homepage = document.querySelector('#homepage').value;
+    		var oMarriage = document.querySelectorAll('[name=marriage_yn]');
+    		var marriage_yn = document.querySelector('[name=marriage_yn]:checked').value;
+    		var oInterest = document.querySelectorAll('[name=interest_area]:checked');
+    		var oEmailYN = document.querySelectorAll('[name=email_yn]');
+    		var email_yn = document.querySelector('[name=email_yn]:checked').value;
+    		var oMsgYn = document.querySelectorAll('[name=msg_yn]');
+    		var msg_yn = document.querySelector('[name=msg_yn]:checked').value;
+
     		if(id == ''){
     			alert('아이디를 입력하세요.');
-    			document.getElementById('userid').focus();
+    			document.querySelector('#userid').focus();
     			return;
     		}
 
-    		document.location.href = '002_user_detail.html';
+    		if(name == ''){
+    			alert('이름을 입력하세요.');
+    			document.querySelector('#username').focus();
+    			return;
+    		}
+
+    		if(pw == ''){
+    			alert('비밀번호를 입력하세요.');
+    			document.querySelector('#password').focus();
+    			return;
+    		}
+
+    		if(cpw == ''){
+    			alert('비밀번호확인을 입력하세요.');
+    			document.querySelector('#confirm_password').focus();
+    			return;
+    		}
+
+    		if(pw != cpw){
+    			alert('비밀번호와 비밀번호확인은 같아야 합니다.');
+    			document.querySelector('#confirm_password').focus();
+    			return;
+    		}
+
+    		var frm = document.form1;
+    		frm.action = '002_user_detail.html';
+    		frm.submit();
+
+    		// document.location.href = '002_user_detail.html';
+    	}
+
+    	window.onload = function(){
+    		
     	}
     </script>
 </body>
