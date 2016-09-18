@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 3주차 수업</title>
+    <script>
+
+    var str1 = "This is an example.";
+    var str2 = 'This is an example.';
+    var str3 = "It's alright";
+    var str4 = "He is called 'Johnny'";
+    var str5 = 'He is called "Johnny"';
+
+    // String Length
+    var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var len = alphabet.length;
+    console.log(len);
+
+    // Special Characters
+    var x = 'It\'s alright';
+    var y = "We are the so-called \"Vikings\" from the north."
+    
+
+    // Finding a String in a String
+    var str6 = "Please locate where 'locate' occurs!";
+    var pos1 = str6.indexOf("locate");
+    console.log('indexOf : ' + pos1);
+
+    var str7 = "Please locate where 'locate' occurs!";
+    var pos2 = str7.lastIndexOf("locate");
+    console.log('lastIndexOf : ' + pos2);
+
+    // slice 메소드는 뽑아내려려는 문자의 시작 index와 마자막 index를 파라미터로 전달, negative 타입으로 파라미터 설정 가능
+    var str8 = "Apple, Banana, Kiwi";
+    var res = str8.slice(7,13);
+    console.log('Slice : ' + res);
+
+    var res2 = str8.slice(-12,-6);
+    console.log('Slice : ' + res2);
+
+    var res3 = str8.slice(7);
+    console.log('Slice : ' + res3);
+
+    // substring 메소드는 뽑아내려려는 문자의 시작 index와 마자막 index를 파라미터로 전달
+    var res4 = str8.substring(7,13);
+    console.log('substring : ' + res4);
+
+    // substr 메소드는 첫번째 파라미터에는 string의 시작 index, 두번째 파라미터에는 길이를 전달
+    var res5 = str8.substr(7,6);
+    console.log('substring : ' + res5);
+
+    // replace
+    var str12 = "Please Microsoft visit Microsoft!";
+    var n1 = str12.replace("Microsoft","W3Schools");
+    console.log('replace : ' + n1);
+
+    var n2 = str12.replace(/Microsoft/g,"W3Schools");   //Regular Expression (정규식)
+    console.log('replace : ' + n2);
+
+    // toUpperCase 대문자로 변환
+    var text1 = "Hello World!";       
+    var text2 = text1.toUpperCase();  
+    console.log('UpperCase : ' + text2);
+
+    // toLowerCase 소문자로 변환
+    var text3 = text1.toLowerCase();  
+    console.log('LowerCase : ' + text3);
+
+    // split
+    var txt = "a,b,c,d,e";   
+    var arrTxt = txt.split(",");  
+    console.log(arrTxt);
+
+
+    function getUnformatDateValue(value, format){
+        if(value == '') return value;
+        if(format == undefined || format == "") return value;
+
+        format = format.toLowerCase();
+
+        var yyyy = value.substring(format.indexOf('yyyy'),format.indexOf('yyyy')+4);
+        var mm = value.substring(format.indexOf('mm'),format.indexOf('mm')+2);
+        var dd = value.substring(format.indexOf('dd'),format.indexOf('dd')+2);
+
+        return yyyy+mm+dd;
+    }
+
+    function getFormatDateValue(value, format){
+        if(value == '') return value;
+        if(format == undefined || format == "") return value;
+
+        var regExp=/\D/g;
+        value = value.replace(regExp,"");
+        if(value == "00000000") return "";
+        
+        var date_format = format;
+        date_format = date_format.replace("yyyy",value.substring(0,4));
+        date_format = date_format.replace("MM",value.substring(4,6));
+        date_format = date_format.replace("dd",value.substring(6));
+
+        return date_format; 
+    }
+
+    console.log('Korea Date(yyyy.MM.dd) : ' + getUnformatDateValue('2016.09.20', 'yyyy.MM.dd'));
+    console.log('US Date(dd.MM.yyyy) : ' + getUnformatDateValue('20.09.2016', 'dd.MM.yyyy'));
+    console.log('EU Date(MM.dd.yyyy) : ' + getUnformatDateValue('09.20.2016', 'MM.dd.yyyy'));
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

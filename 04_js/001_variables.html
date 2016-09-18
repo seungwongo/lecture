@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 3주차 수업</title>
+    <script>
+    //자바스크립트의 변수(variables)는 데이터의 타입(숫자,문자,오브젝트,배열,function 등)과 상관없이 var로 선언하여 사용한다. 
+
+    // Number : 숫자 타입
+    console.log("========= Number ==========");
+
+    var number1 = 7;
+    var number2 = 4;
+    var sum = number1+number2;
+
+    console.log('number1 + number2 = ' + sum);
+
+
+    // Float : 소수점을 포함한 숫자
+    console.log("========= Float ==========");
+
+    var float1 = 21.12;
+    var float2 = 3.48;
+    var sum2 = float1 + float2;
+
+    console.log('float1 + float2 = ' + sum2);
+
+
+    // String : 문자, 싱글따옴표, 더블따옴표로 묶인 변수
+    console.log("========= String ==========");
+
+    var str1 = '5';
+    var number3 = 5;
+    var sum3 = str1 + number3;
+
+    console.log('str1 + number3 = ' + sum3);
+
+    var str2 = 'My name is ';
+    var str3 = 'Seungwon Go.';
+    var sum4 = str2 + str3;
+
+    console.log('str2 + str3 = ' + sum4);
+
+
+    // Boolean : true, false 참과 거짓
+    console.log("========= Boolean ==========");
+
+    var isGender = true;
+    var isSame = false;
+    var x = 3;
+    var y = 3;
+    
+    if(x == y) isSame = true;
+
+    console.log('isSame : ' + isSame);
+
+
+    // Object : property(key) 와 Value 쌍으로 이루어짐. 객체의 Value는 모든 변수(variables) 타입이 올수 있음
+    console.log("========= Object ==========");
+
+    var obj1 = {firstName:"Seungwon", lastName :"Go", gender:"M"};
+    console.log(obj1.firstName);
+    console.log(obj1["firstName"]);
+
+    var person = {
+        firstName:"Seungwon", 
+        lastName :"Go", 
+        gender:"M",
+        getFullName : function(){
+            return this.firstName + " " + this.lastName;
+        }
+    };
+
+    console.log(person.getFullName());
+
+
+    // Array : 배열, 다중 데이터
+    console.log("========= Array ==========");
+
+    var arr1 = [3,4,1,23,11,543,85];
+    var arr2 = ["정우성","이병헌","송강호","최민식","공유"];
+    var arr3 = [
+        {"USER_ID":"gsw001", "USER_NAME":"정우성", "EMAIL":"wsjung@gmail.com", "MOBILE":"010-1234-4321", "GENDER":"M"},
+        {"USER_ID":"gsw002", "USER_NAME":"이병헌", "EMAIL":"bhlee@gmail.com", "MOBILE":"010-1234-4321", "GENDER":"M"},
+        {"USER_ID":"gsw003", "USER_NAME":"송강호", "EMAIL":"khsong@gmail.com", "MOBILE":"010-1234-4321", "GENDER":"M"},
+        {"USER_ID":"gsw004", "USER_NAME":"최민식", "EMAIL":"mschoi@gmail.com", "MOBILE":"010-1234-4321", "GENDER":"M"}
+    ];
+
+    var length1 = arr1.length;
+    for(var i=0 ; i<length1 ; i++){
+        console.log(arr1[i]);
+    }
+
+    var length2 = arr2.length;
+    for(var i=0 ; i<length2 ; i++){
+        console.log(arr2[i]);
+    }
+
+    var length3 = arr3.length;
+    for(var i=0 ; i<length3 ; i++){
+        console.log(arr3[i]["USER_ID"]);
+    }
+
+    // function
+    console.log("========= Function ==========");
+
+    var sum = function(arg1, arg2){
+        return arg1 + arg2;
+    }
+
+    console.log(sum(3,8));
+
+    function divide(arg1, arg2){
+        return arg1 / arg2;
+    }
+
+    console.log(divide(10,5));
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
