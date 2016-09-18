@@ -23,7 +23,7 @@
 		                    <label>아이디<span style="padding: 8px 5px 0px;color: #bb162b;">*</span></label>
 		                </td>
 		                <td>
-		                    paullab0001
+		                    <span id="user_id"></span>
 		                </td>
 		            </tr>
 		            <tr>
@@ -55,7 +55,7 @@
 		                    <label class="asterisk">이름</label>
 		                </td>
 		                <td>
-		                    홍길동
+		                    <span id="user_name"></span>
 		                </td>
 		            </tr>
 		            <tr>
@@ -63,7 +63,7 @@
 		                    <label class="asterisk">이메일주소</label>
 		                </td>
 		                <td>
-		                    <input type="email" value="gildong@gmail.com">
+		                    <input type="email" id="email" value="gildong@gmail.com">
 		                </td>
 		            </tr>
 		            <tr>
@@ -71,7 +71,7 @@
 		                    <label class="asterisk">주민등록번호</label>
 		                </td>
 		                <td>
-		                    951201-*******
+		                    <span id="social_number"></span>
 		                </td>
 		            </tr>
 		            <tr>
@@ -79,7 +79,7 @@
 		                    <label>생년월일</label>
 		                </td>
 		                <td>
-		                    1995년 2월 18일
+		                    <span id="birth_date"></span>
 		                </td>
 		            </tr>
 		            <tr>
@@ -87,7 +87,7 @@
 		                    <label>성별</label>
 		                </td>
 		                <td>
-		                    남자
+		                    <span id="gender"></span>
 		                </td>
 		            </tr>
 		            <tr>
@@ -126,7 +126,7 @@
 		                    <label>홈페이지</label>
 		                </td>
 		                <td>
-		                    <input type="url" style="width:90%;" value="http://gildong.co.kr">
+		                    <input type="url" id="homepage" style="width:90%;" value="">
 		                </td>
 		            </tr>
 		            <tr>
@@ -134,8 +134,8 @@
 		                    <label>혼인여부</label>
 		                </td>
 		                <td>
-		                    <label><input type="radio" name="gender"> 기혼</label>
-		                    <label><input type="radio" name="gender" checked> 미혼</label>
+		                    <label><input type="radio" name="marriage_yn" value="Y"> 기혼</label>
+		                    <label><input type="radio" name="marriage_yn" value="N"> 미혼</label>
 		                </td>
 		            </tr>
 		            <tr>
@@ -143,11 +143,11 @@
 		                    <label>관심분야</label>
 		                </td>
 		                <td>
-		                    <label><input type="checkbox" checked> IT/컴퓨터</label>
-		                    <label><input type="checkbox" checked> 엔터테인먼트</label>
-		                    <label><input type="checkbox"> 스포츠</label>
-		                    <label><input type="checkbox"> 쇼핑</label>
-		                    <label><input type="checkbox"> 도서/책</label>
+		                    <label><input type="checkbox" name="interest_area" value="I001"> IT/컴퓨터</label>
+		                    <label><input type="checkbox" name="interest_area" value="I002"> 엔터테인먼트</label>
+		                    <label><input type="checkbox" name="interest_area" value="I003"> 스포츠</label>
+		                    <label><input type="checkbox" name="interest_area" value="I004"> 쇼핑</label>
+		                    <label><input type="checkbox" name="interest_area" value="I005"> 도서/책</label>
 		                </td>
 		            </tr>
 		            <tr>
@@ -155,8 +155,8 @@
 		                    <label>메일수신동의</label>
 		                </td>
 		                <td>
-		                    <label><input type="radio" name="email_yn" checked> 동의</label>
-		                    <label><input type="radio" name="email_yn"> 거부</label>
+		                    <label><input type="radio" name="email_yn" value="Y"> 동의</label>
+		                    <label><input type="radio" name="email_yn" value="N"> 거부</label>
 		                </td>
 		            </tr>
 		            <tr>
@@ -164,8 +164,8 @@
 		                    <label>문자수신동의</label>
 		                </td>
 		                <td>
-		                    <label><input type="radio" name="msg_yn"> 동의</label>
-		                    <label><input type="radio" name="msg_yn" checked> 거부</label>
+		                    <label><input type="radio" name="msg_yn" value="Y"> 동의</label>
+		                    <label><input type="radio" name="msg_yn" value="N"> 거부</label>
 		                </td>
 		            </tr>
 		        </table>
@@ -185,6 +185,75 @@
 
     	function goList(){
     		window.location.href = '013_user_list.html';
+    	}
+
+    	var data = {
+    		"USER_ID":"paullab0001",
+    		"USER_NAME":"홍길동",
+    		"EMAIL":"gildong@gmail.com",
+    		"SOCIAL_NUMBER":"951201-*******",
+    		"BIRTH_DATE":"1995년 2월 18일",
+    		"GNEDER":"M",
+    		"ADDRESS":"대한민국 제주특별자치도 제주시",
+    		"MOBILE":"010-1233-3456",
+    		"HOMEPAGE":"http://gildong.co.kr",
+    		"MARRIAGE":"N",
+    		"INT_AREA":["I001","I002"],
+    		"EMAIL_YN":"Y",
+    		"MSG_YN":"N",
+    	};
+
+    	function loadData(){
+    		document.querySelector('#user_id').innerHTML = data['USER_ID'];
+    		document.querySelector('#user_name').innerHTML = data['USER_NAME'];
+    		document.querySelector('#email').value = data['EMAIL'];
+    		document.querySelector('#social_number').innerHTML = data['SOCIAL_NUMBER'];
+    		document.querySelector('#birth_date').innerHTML = data['BIRTH_DATE'];
+
+    		if(data['GNEDER'] == 'M'){
+    			document.querySelector('#gender').innerHTML = '남자';
+    		}else if(data['GNEDER'] == 'F'){
+    			document.querySelector('#gender').innerHTML = '여자';
+    		}
+
+    		// document.querySelector('#address').value = data['ADDRESS'];
+    		// document.querySelector('#mobile').value = data['MOBILE'];
+
+    		var oMarriage = document.querySelectorAll('[name=marriage_yn]');
+
+    		for(var i=0 ; i<oMarriage.length ; i++){
+    			if(oMarriage[i].value == data['MARRIAGE']) oMarriage[i].checked = true;
+    		}
+
+    		document.querySelector('#homepage').value = data['HOMEPAGE'];
+
+    		var int_area = {};
+    		for(var i=0 ; i<data['INT_AREA'].length ; i++){
+    			var v = data["INT_AREA"][i];
+    			int_area[v] = v;
+    		}
+
+    		var oInterest = document.querySelectorAll('[name=interest_area]');
+    		var len = oInterest.length;
+    		for(var i=0 ; i<len ; i++){
+    			if(int_area[oInterest[i].value] != undefined) oInterest[i].checked = true;
+    		}
+
+    		var oEmailYN = document.querySelectorAll('[name=email_yn]');
+
+    		for(var i=0 ; i<oEmailYN.length ; i++){
+    			if(oEmailYN[i].value == data['EMAIL_YN']) oEmailYN[i].checked = true;
+    		}
+
+    		var oMsgYn = document.querySelectorAll('[name=msg_yn]');
+
+    		for(var i=0 ; i<oMsgYn.length ; i++){
+    			if(oMsgYn[i].value == data['MSG_YN']) oMsgYn[i].checked = true;
+    		}
+    	}
+
+    	window.onload = function(){
+    		loadData();
     	}
     </script>
 </body>
