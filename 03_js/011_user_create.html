@@ -63,7 +63,7 @@
 		                    <label class="asterisk">주민등록번호</label>
 		                </td>
 		                <td>
-		                    <input type="text" maxlength="6" size="6" id="social_number1" name="social_number1">-
+		                    <input type="text" maxlength="6" size="6" id="social_number1" name="social_number1" onkeydown="number(event);" onkeyup="moveNext(this, 6, 'social_number2');">-
 		                    <input type="password" maxlength="7" size="7" id="social_number2" name="social_number2">
 		                </td>
 		            </tr>
@@ -166,12 +166,13 @@
 		    </div>
 		</form>
 		<div class="btn-area">
-	    	<button class="btn-danger" onclick="doSave();">저장</button>
-	    	<button class="btn-default">취소</button>
+	    	<button class="btn-danger" onclick="doSave2();">저장</button>
+	    	<button class="btn-default" onclick="doCancel();">취소</button>
 	    </div>
 	</div>
 
 	<!-- Script 작성 영역 -->
+    <script src="js/util.js"></script>
     <script>
     	function doCancel(){
     		document.location.href = '013_user_list.html';
@@ -240,6 +241,106 @@
     		frm.submit();
 
     		// document.location.href = '002_user_detail.html';
+    	}
+
+    	function doSave2(){
+    		var id = document.getElementById('userid').value;
+    		var id2 = document.getElementsByName('userid')[0].value;
+
+    		var name = document.querySelector('#username').value;
+    		var pw = document.querySelector('#password').value;
+    		var cpw = document.querySelector('#confirm_password').value;
+
+    		var email = document.querySelector('#email').value;
+    		var social_number1 = document.querySelector('#social_number1').value;
+    		var social_number2 = document.querySelector('#social_number2').value;
+    		var birth_date = document.querySelector('#birth_date').value;
+    		var oGender = document.querySelectorAll('[name=gender]');
+    		var gender = document.querySelector('[name=gender]:checked').value;
+
+    		var mobile1 = document.querySelector('#mobile1').value;
+    		var mobile2 = document.querySelector('#mobile2').value;
+    		var mobile3 = document.querySelector('#mobile3').value;
+
+    		var homepage = document.querySelector('#homepage').value;
+    		var oMarriage = document.querySelectorAll('[name=marriage_yn]');
+    		var marriage_yn = document.querySelector('[name=marriage_yn]:checked').value;
+    		var oInterest = document.querySelectorAll('[name=interest_area]:checked');
+    		var oEmailYN = document.querySelectorAll('[name=email_yn]');
+    		var email_yn = document.querySelector('[name=email_yn]:checked').value;
+    		var oMsgYn = document.querySelectorAll('[name=msg_yn]');
+    		var msg_yn = document.querySelector('[name=msg_yn]:checked').value;
+
+    		if(id == ''){
+    			alert('아이디를 입력하세요.');
+    			document.querySelector('#userid').focus();
+    			return;
+    		}
+
+    		if(name == ''){
+    			alert('이름을 입력하세요.');
+    			document.querySelector('#username').focus();
+    			return;
+    		}
+
+    		if(pw == ''){
+    			alert('비밀번호를 입력하세요.');
+    			document.querySelector('#password').focus();
+    			return;
+    		}
+
+    		if(cpw == ''){
+    			alert('비밀번호확인을 입력하세요.');
+    			document.querySelector('#confirm_password').focus();
+    			return;
+    		}
+
+    		if(pw != cpw){
+    			alert('비밀번호와 비밀번호확인은 같아야 합니다.');
+    			document.querySelector('#confirm_password').focus();
+    			return;
+    		}
+
+    		var data = {};
+    		data["USER_ID"] = id;
+    		data["USER_NAME"] = name;
+    		data["PASSWORD"] = pw;
+    		data["EMAIL"] = email;
+    		data["SOCIAL_NUMBER1"] = social_number1;
+    		data["SOCIAL_NUMBER2"] = social_number2;
+    		data["BIRTH_DATE"] = birth_date;
+    		data["GENDER"] = gender;
+    		data["MOBILE1"] = mobile1;
+    		data["MOBILE2"] = mobile2;
+    		data["MOBILE3"] = mobile3;
+    		data["HOMEPAGE"] = homepage;
+    		data["MARRIAGE_YN"] = marriage_yn;
+    		data["EMAIL_YN"] = email_yn;
+    		data["MSG_YN"] = msg_yn;
+
+    		var int_area = [];
+    		for(var i=0 ; i<oInterest.length ; i++){
+    			int_area.push(oInterest[i].value);
+    		}
+
+    		data["INT_AREA"] = int_area;
+
+    		console.log(data);
+
+    	// 	$.ajax({
+	    //          url: "update_server_url",
+	    //          async: true,
+	    //          header: {},
+	    //          data: JSON.stringify(data),
+	    //          type: "POST",
+	    //          success: function(data) {
+					// document.location.href = '-12_user_detail.html';	                
+	    //          },
+	    //          error:function(jqxhr, textStatus, error){
+	    //             var err = textStatus + ", " + error;
+	    //             console.log(err);
+	    //          }
+	    //     });
     	}
 
     </script>

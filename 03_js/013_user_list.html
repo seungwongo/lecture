@@ -77,8 +77,8 @@
             </table>
             <div class="paginate">
                 <a href="#">Prev</a>
-                <a href="#">1</a>
-                <strong>2</strong>
+                <strong>1</strong>
+                <a href="#">2</a>
                 <a href="#">3</a>
                 <a href="#">4</a>
                 <a href="#" class="last">Next</a>
@@ -89,7 +89,11 @@
     <script>
         var data = [
             {"USER_ID":"paullab001","USER_NAME":"홍길동","EMAIL":"gildong@gmail.com","MOBILE":"010-1111-2222","GENDER":"남자","BIRTH_DATE":"19950216","EMAIL_YN":"동의","MSG_YN":"동의"},
-            {"USER_ID":"paullab002","USER_NAME":"김철수","EMAIL":"cskim@gmail.com","MOBILE":"010-3333-4444","GENDER":"남자","BIRTH_DATE":"19900709","EMAIL_YN":"동의","MSG_YN":"거부"}
+            {"USER_ID":"paullab002","USER_NAME":"김철수","EMAIL":"cskim@gmail.com","MOBILE":"010-3333-4444","GENDER":"남자","BIRTH_DATE":"19900709","EMAIL_YN":"동의","MSG_YN":"거부"},
+            {"USER_ID":"paullab003","USER_NAME":"김혜수","EMAIL":"hskim@gmail.com","MOBILE":"010-3333-4444","GENDER":"여자","BIRTH_DATE":"19900709","EMAIL_YN":"동의","MSG_YN":"거부"},
+            {"USER_ID":"paullab004","USER_NAME":"송강호","EMAIL":"khsong@gmail.com","MOBILE":"010-3333-4444","GENDER":"남자","BIRTH_DATE":"19900709","EMAIL_YN":"동의","MSG_YN":"거부"},
+            {"USER_ID":"paullab005","USER_NAME":"정우성","EMAIL":"wsjung@gmail.com","MOBILE":"010-3333-4444","GENDER":"남자","BIRTH_DATE":"19900709","EMAIL_YN":"동의","MSG_YN":"거부"},
+            {"USER_ID":"paullab006","USER_NAME":"이병헌","EMAIL":"bhlee@gmail.com","MOBILE":"010-3333-4444","GENDER":"남자","BIRTH_DATE":"19900709","EMAIL_YN":"동의","MSG_YN":"거부"}
         ];
 
         function doSearch(){
@@ -98,22 +102,34 @@
             var sel_email_yn = document.getElementById('sel_email_yn').value;
             var sel_msg_yn = document.getElementById('sel_msg_yn').value;
 
-            var h = [];
-            var len = data.length;
-            for(var i=0 ; i<len ; i++){
-                h.push('<tr onclick="goDetail(\'' + data[i]['USER_ID'] + '\');">');
-                h.push('<td>' + data[i]['USER_ID'] + '</td>');
-                h.push('<td class="text-center">' + data[i]['USER_NAME'] + '</td>');
-                h.push('<td>' + data[i]['EMAIL'] + '</td>');
-                h.push('<td class="text-center">' + data[i]['MOBILE'] + '</td>');
-                h.push('<td class="text-center">' + data[i]['GENDER'] + '</td>');
-                h.push('<td class="text-center">' + data[i]['BIRTH_DATE'] + '</td>');
-                h.push('<td class="text-center">' + data[i]['EMAIL_YN'] + '</td>');
-                h.push('<td class="text-center">' + data[i]['MSG_YN'] + '</td>');
-                h.push('</tr>');
-            }
+            var param = "USER_ID="+userid+"&USER_NAME="+username+"&EMAIL_YN="+sel_email_yn+"&MSG_YN="+sel_msg_yn
 
-            document.querySelector('#grid1 > tbody').innerHTML = h.join('');
+            // $.getJSON( "userlist_search_server_url", param ) 
+                // .done(function( json ) {
+                    var h = [];
+                    var len = data.length;
+                    for(var i=0 ; i<len ; i++){
+                        h.push('<tr onclick="goDetail(\'' + data[i]['USER_ID'] + '\');">');
+                        h.push('<td>' + data[i]['USER_ID'] + '</td>');
+                        h.push('<td class="text-center">' + data[i]['USER_NAME'] + '</td>');
+                        h.push('<td>' + data[i]['EMAIL'] + '</td>');
+                        h.push('<td class="text-center">' + data[i]['MOBILE'] + '</td>');
+                        h.push('<td class="text-center">' + data[i]['GENDER'] + '</td>');
+                        h.push('<td class="text-center">' + data[i]['BIRTH_DATE'] + '</td>');
+                        h.push('<td class="text-center">' + data[i]['EMAIL_YN'] + '</td>');
+                        h.push('<td class="text-center">' + data[i]['MSG_YN'] + '</td>');
+                        h.push('</tr>');
+                    }
+
+                    document.querySelector('#grid1 > tbody').innerHTML = h.join('');
+            //     })
+            //     .fail(function( jqxhr, textStatus, error ) {
+            //         var err = textStatus + ", " + error;
+            //         console.log(err);
+            //     }
+            // );
+
+            
         }
 
     	function goCreate(){

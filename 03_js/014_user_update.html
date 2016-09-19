@@ -178,9 +178,55 @@
 	</div>
 
 	<!-- Script 작성 영역 -->
+	<script src="js/util.js"></script>
     <script>
     	function doSave(){
+    		var pw = document.querySelector('#password').value;
+    		var cpw = document.querySelector('#confirm_password').value;
 
+    		var email = document.querySelector('#email').value;
+
+    		var mobile1 = document.querySelector('#mobile1').value;
+    		var mobile2 = document.querySelector('#mobile2').value;
+    		var mobile3 = document.querySelector('#mobile3').value;
+
+    		var homepage = document.querySelector('#homepage').value;
+    		var marriage_yn = document.querySelector('[name=marriage_yn]:checked').value;
+    		var oInterest = document.querySelectorAll('[name=interest_area]:checked');
+    		var email_yn = document.querySelector('[name=email_yn]:checked').value;
+    		var msg_yn = document.querySelector('[name=msg_yn]:checked').value;
+
+
+    		data["EMAIL"] = email;
+    		data["MOBILE1"] = mobile1;
+    		data["MOBILE2"] = mobile2;
+    		data["MOBILE3"] = mobile3;
+    		data["HOMEPAGE"] = homepage;
+    		data["MARRIAGE_YN"] = marriage_yn;
+    		data["EMAIL_YN"] = email_yn;
+    		data["MSG_YN"] = msg_yn;
+
+    		var int_area = [];
+    		for(var i=0 ; i<oInterest.length ; i++){
+    			int_area.push(oInterest[i].value);
+    		}
+
+    		data["INT_AREA"] = int_area;
+
+    	// 	$.ajax({
+	    //          url: "update_server_url",
+	    //          async: true,
+	    //          header: {},
+	    //          data: JSON.stringify(data),
+	    //          type: "POST",
+	    //          success: function(data) {
+					// document.location.href = '-12_user_detail.html';	                
+	    //          },
+	    //          error:function(jqxhr, textStatus, error){
+	    //             var err = textStatus + ", " + error;
+	    //             console.log(err);
+	    //          }
+	    //     });
     	}
 
     	function goList(){
