@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 4주차 수업</title>
+    <script>
+    var cars = ["Hyundai", "Volvo", "BMW"];
+    var cars2 = new Array("Hyundai", "Volvo", "BMW");
+
+    var length = cars.length;
+    for(var i=0 ; i<length ; i++){
+        console.log(cars[i]);
+    }
+
+    var fruits = ["Banana", "Orange","Apple", "Mango"];
+    console.log(fruits.join(" * "));
+    console.log(fruits.join(", "));
+    console.log(fruits.join(""));
+
+    fruits.push("Kiwi");
+    console.log(fruits.join(", "));    
+
+    fruits.shift();            // Removes the first element "Banana" from fruits
+    console.log(fruits.join(", "));    
+    fruits.unshift("Lemon");    // Adds a new element "Lemon" to fruits
+    console.log(fruits.join(", "));    
+
+    fruits[0] = "Kiwi";        // Changes the first element of fruits to "Kiwi"
+    console.log(fruits.join(", "));    
+
+    fruits[fruits.length] = "Kiwi";          // Appends "Kiwi" to fruit
+    console.log(fruits.join(", "));    
+
+    var myGirls = ["Cecilie", "Lone"];
+    var myBoys = ["Emil", "Tobias","Linus"];
+    var myChildren = myGirls.concat(myBoys);
+    console.log(myChildren.join(", "));
+
+    var arr1 = ["Cecilie", "Lone"];
+    var arr2 = ["Emil", "Tobias","Linus"];
+    var arr3 = ["Robin", "Morgan"];
+    var myChildren2 = arr1.concat(arr2, arr3);     // Concatenates arr1 with arr2 and arr3
+    console.log(myChildren2.join(", "));
+
+    fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.sort();            // Sorts the elements of fruits
+    console.log(fruits.join(", ")); 
+
+    fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.sort();            // Sorts the elements of fruits 
+    fruits.reverse();         // Reverses the order of the elements
+    console.log(fruits.join(", ")); 
+
+    var points = [40, 100, 1, 5, 25, 10];
+    points.sort(function(a, b){return a - b});  // Sort ascending
+    console.log(points.join(", ")); 
+    console.log("Min Value : " + points[0]); 
+
+    points = [40, 100, 1, 5, 25, 10];
+    points.sort(function(a, b){return b - a});  // Sort descending
+    console.log(points.join(", ")); 
+    console.log("Max Value : " + points[0]); 
+
+    var cars = [
+        {type:"Audi", year:2016},
+        {type:"Hyundai", year:2001},
+        {type:"BMW", year:2010}
+    ];
+
+    cars.sort(function(a, b){return a.year - b.year});
+    console.log(cars);
+
+    cars = [
+        {type:"Audi", year:2016},
+        {type:"Hyundai", year:2001},
+        {type:"BMW", year:2010}
+    ];
+    
+    cars.sort(function(a, b){
+        var x = a.type.toLowerCase();
+        var y = b.type.toLowerCase();
+        if (x < y) {return -1;}
+        if (x > y) {return 1;}
+        return 0;
+    });
+
+    console.log(cars);
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

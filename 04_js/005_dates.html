@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 4주차 수업</title>
+    <script>
+    // 프로그램이 실행되는 시점의 yyyymmdd hhmmss 를 가져옴
+    var date = new Date();
+
+    // 년도
+    var year = date.getFullYear();
+    console.log("Current Year : " + year);
+
+    // 월 : 0~11, 즉 가져온 값이 0이면 1월을 의미
+    var month = date.getMonth();
+    console.log("Current Month : " + month);    
+
+    month = month + 1;
+    if(month < 10) month = "0" + month;
+
+    console.log("Current Month2 : " + month);  
+
+    // 일 : 1~31
+    var day = date.getDate();  
+    console.log("Current Day : " + day);    
+
+    console.log("Current Date : " + year+month+day);
+
+    var date2 = new Date("2015/08/16");
+    var date3 = new Date("2016-07-20");
+
+
+    // 현재 날짜 반환
+    function getCurrentDate(format){
+        var date = new date();
+        var year = date.getFullYear();
+        var month = date.getMonth();
+        month = month + 1;
+        if(month < 10) month = "0" + month;
+        var day = date.getDate();  
+        if(day < 10) day = "0" + day;
+
+        if(format != undefined){
+            var date_format = format;
+            date_format = date_format.replace("yyyy",year);
+            date_format = date_format.replace("MM",month);
+            date_format = date_format.replace("dd",day);
+
+            return date_format;
+        }else{
+            return String(year)+String(month)+String(day);
+        }
+    }
+
+    // 현재 날짜를 기준으로 일주일전을 알고 싶은경우는 -7
+    function getDateFromCurrentDate(interval, format){
+        var now = new Date();
+        var date = new Date(Date.parse(now) + (interval*1000*60*60*24));
+
+        var year = date.getFullYear();
+        var month = date.getMonth();
+        month = month + 1;
+        if(month < 10) month = "0" + month;
+        var day = date.getDate();  
+        if(day < 10) day = "0" + day;
+
+        if(format != undefined){
+            var date_format = format;
+            date_format = date_format.replace("yyyy",year);
+            date_format = date_format.replace("MM",month);
+            date_format = date_format.replace("dd",day);
+
+            return date_format;
+        }else{
+            return String(year)+String(month)+String(day);
+        }
+    }
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
