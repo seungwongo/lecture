@@ -31,7 +31,7 @@
 		                    <label class="asterisk">현재 비밀번호</label>
 		                </td>
 		                <td>
-		                    <input type="password">
+		                    <input type="password" id="current_password">
 		                </td>
 		            </tr>
 		            <tr>
@@ -39,7 +39,7 @@
 		                    <label class="asterisk">새비밀번호</label>
 		                </td>
 		                <td>
-		                    <input type="password">
+		                    <input type="password" id="new_password">
 		                </td>
 		            </tr>
 		            <tr>
@@ -47,7 +47,7 @@
 		                    <label class="asterisk">비밀번호확인</label>
 		                </td>
 		                <td>
-		                    <input type="password">
+		                    <input type="password" id="confirm_password">
 		                </td>
 		            </tr>
 		            <tr>
@@ -182,7 +182,8 @@
 	<!-- <script src="js/jquery-2.1.1.js"></script> -->
     <script>
     	function doSave(){
-    		var pw = document.querySelector('#password').value;
+    		var pw = document.querySelector('#current_password').value;
+    		var npw = document.querySelector('#new_password').value;
     		var cpw = document.querySelector('#confirm_password').value;
 
     		var email = document.querySelector('#email').value;
