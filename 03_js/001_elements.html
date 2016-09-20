@@ -28,7 +28,7 @@
         <input type="radio" name="radio_email_yn" value="Y" checked> 동의</label>
     <label>
         <input type="radio" name="radio_email_yn" value="N"> 거부</label>
-    <br> Email:
+    <br> Select:
     <br>
     <select id="select1">
         <option value="KO">Korea</option>
@@ -41,32 +41,35 @@
     <script>
     function showData(){
         var oText1 = document.getElementById('text1');
+        console.log('Text1 : ' + oText1.value);
+
         var oText2 = document.querySelector('#text1');
+        console.log('Text2 : ' + oText1.value);
+
         var oCheckbox = document.getElementsByName('chk_interest');
         var oCheckbox2 = document.querySelectorAll('[name=chk_interest]');
+        console.log(oCheckbox2);
         var oCheckbox3 = document.querySelectorAll('[name=chk_interest]:checked');
-
+        console.log(oCheckbox3);
         var oRadio = document.getElementsByName('radio_email_yn');
         var oRadio2 = document.querySelectorAll('[name=radio_email_yn]');
+        console.log(oRadio2);
         var oRadio3 = document.querySelector('[name=radio_email_yn]:checked');
+        console.log(oRadio3);
 
         var oSelect = document.getElementById('select1');
-
-        alert('Text1 : ' + oText1.value);
-        alert('Text2 : ' + oText2.value);
+        console.log('select1 : ' + oSelect.value);
+        console.log('select1 text : ' + oSelect.options[oSelect.selectedIndex].text);
 
         var len = oCheckbox.length;
         for(var i=0 ; i<len ; i++){
-            if(oCheckbox[i].checked) alert(oCheckbox[i].value);
+            if(oCheckbox[i].checked) console.log('Checkbox : ' + oCheckbox[i].value);
         }
 
         var len2 = oRadio.length;
         for(var i=0 ; i<len2 ; i++){
-            if(oRadio[i].checked) alert(oRadio[i].value);
+            if(oRadio[i].checked) console.log('Radio : ' + oRadio[i].value);
         }
-
-        alert('Select1 : ' + oSelect.value);
-        alert('Select1 Text : ' + oSelect.options[oSelect.selectedIndex].text);
 
     }
     </script>
