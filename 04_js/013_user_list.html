@@ -62,14 +62,14 @@
             <table class="list-table" id="grid1">
                 <thead>
                     <tr>
-                        <th onclick="sort('USER_ID');">아이디</th>
-                        <th onclick="sort('USER_NAME');">이름</th>
-                        <th onclick="sort('EMAIL');">이메일</th>
-                        <th onclick="sort('MOBILE');">핸드폰</th>
-                        <th onclick="sort('GENDER');">성별</th>
-                        <th onclick="sort('BIRTH_DATE');">생년월일</th>
-                        <th onclick="sort('EMAIL_YN');">메일수신동의</th>
-                        <th onclick="sort('MSG_YN');">문자수신동의</th>
+                        <th onclick="sort('userId');">아이디</th>
+                        <th onclick="sort('name');">이름</th>
+                        <th onclick="sort('email');">이메일</th>
+                        <th onclick="sort('phone');">핸드폰</th>
+                        <th onclick="sort('gender');">성별</th>
+                        <th onclick="sort('birth_date');">생년월일</th>
+                        <th onclick="sort('email_yn');">메일수신동의</th>
+                        <th onclick="sort('msg_yn');">문자수신동의</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -88,16 +88,9 @@
     <!-- Script 작성 영역 -->
     <!-- <script src="js/jquery-2.1.1.js"></script> -->
     <script src="js/util.js"></script>
+    <script src="js/user.model.js"></script>
     <script>
-        var data = [
-            {"USER_ID":"paullab001","USER_NAME":"홍길동","EMAIL":"gildong@gmail.com","MOBILE":"010-1111-2222","GENDER":"남자","BIRTH_DATE":"19950216","EMAIL_YN":"동의","MSG_YN":"동의"},
-            {"USER_ID":"paullab002","USER_NAME":"김철수","EMAIL":"cskim@gmail.com","MOBILE":"010-3333-4444","GENDER":"남자","BIRTH_DATE":"19900709","EMAIL_YN":"동의","MSG_YN":"거부"},
-            {"USER_ID":"paullab003","USER_NAME":"김혜수","EMAIL":"hskim@gmail.com","MOBILE":"010-3333-4444","GENDER":"여자","BIRTH_DATE":"19900709","EMAIL_YN":"동의","MSG_YN":"거부"},
-            {"USER_ID":"paullab004","USER_NAME":"송강호","EMAIL":"khsong@gmail.com","MOBILE":"010-3333-4444","GENDER":"남자","BIRTH_DATE":"19900709","EMAIL_YN":"동의","MSG_YN":"거부"},
-            {"USER_ID":"paullab005","USER_NAME":"정우성","EMAIL":"wsjung@gmail.com","MOBILE":"010-3333-4444","GENDER":"남자","BIRTH_DATE":"19900709","EMAIL_YN":"동의","MSG_YN":"거부"},
-            {"USER_ID":"paullab006","USER_NAME":"이병헌","EMAIL":"bhlee@gmail.com","MOBILE":"010-3333-4444","GENDER":"남자","BIRTH_DATE":"19900709","EMAIL_YN":"동의","MSG_YN":"거부"}
-        ];
-
+        var data = user_list;
         var _bAsc = true;
 
         function sort(key){
@@ -110,8 +103,8 @@
 
         function sortAsc(key){
             data.sort(function(a1,a2){
-                var x = a1[key].toLowerCase();
-                var y = a2[key].toLowerCase();
+                var x = String(a1[key]).toLowerCase();
+                var y = String(a2[key]).toLowerCase();
 
                 if (x < y) {return -1;}
                 if (x > y) {return 1;}
@@ -124,8 +117,8 @@
 
         function sortDes(key){
             data.sort(function(a1,a2){
-                var x = a1[key].toLowerCase();
-                var y = a2[key].toLowerCase();
+                var x = String(a1[key]).toLowerCase();
+                var y = String(a2[key]).toLowerCase();
                 
                 if (x > y) {return -1;}
                 if (x < y) {return 1;}
@@ -140,15 +133,15 @@
             var h = [];
             var len = data.length;
             for(var i=0 ; i<len ; i++){
-                h.push('<tr onclick="goDetail(\'' + data[i]['USER_ID'] + '\');">');
-                h.push('<td>' + data[i]['USER_ID'] + '</td>');
-                h.push('<td class="text-center">' + data[i]['USER_NAME'] + '</td>');
-                h.push('<td>' + data[i]['EMAIL'] + '</td>');
-                h.push('<td class="text-center">' + data[i]['MOBILE'] + '</td>');
-                h.push('<td class="text-center">' + data[i]['GENDER'] + '</td>');
-                h.push('<td class="text-center">' + dateUtil.getFormatValue(data[i]['BIRTH_DATE'], 'yyyy-MM-dd') + '</td>');
-                h.push('<td class="text-center">' + data[i]['EMAIL_YN'] + '</td>');
-                h.push('<td class="text-center">' + data[i]['MSG_YN'] + '</td>');
+                h.push('<tr onclick="goDetail(\'' + data[i]['userId'] + '\');">');
+                h.push('<td>' + data[i]['userId'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['name'] + '</td>');
+                h.push('<td>' + data[i]['email'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['phone'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['gender'] + '</td>');
+                h.push('<td class="text-center">' + dateUtil.getFormatValue(data[i]['birth_date'], 'yyyy-MM-dd') + '</td>');
+                h.push('<td class="text-center">' + ((data[i]['email_yn'])?'동의':'거부') + '</td>');
+                h.push('<td class="text-center">' + ((data[i]['msg_yn'])?'동의':'거부') + '</td>');
                 h.push('</tr>');
             }
 
@@ -163,17 +156,7 @@
 
             var param = "USER_ID="+userid+"&USER_NAME="+username+"&EMAIL_YN="+sel_email_yn+"&MSG_YN="+sel_msg_yn
 
-            // $.getJSON( "userlist_search_server_url", param ) 
-                // .done(function( json ) {
-                    renderTable();
-            //     })
-            //     .fail(function( jqxhr, textStatus, error ) {
-            //         var err = textStatus + ", " + error;
-            //         console.log(err);
-            //     }
-            // );
-
-            
+            renderTable();
         }
 
     	function goCreate(){
