@@ -72,6 +72,13 @@
     var arrTxt = txt.split(",");  
     console.log(arrTxt);
 
+    var today = '20160928';
+    var year = today.substring(0,4);    //today.substr(0,4)
+    var month = today.substring(4,6);   //today.substr(4,2);
+    var day = today.substring(6,8);     //today.substr(6,2)
+
+    var us_today = month + "-" + day + "-" + year;
+    console.log(us_today);
 
     function getUnformatDateValue(value, format){
         if(value == '') return value;
@@ -79,9 +86,9 @@
 
         format = format.toLowerCase();
 
-        var yyyy = value.substring(format.indexOf('yyyy'),format.indexOf('yyyy')+4);
-        var mm = value.substring(format.indexOf('mm'),format.indexOf('mm')+2);
-        var dd = value.substring(format.indexOf('dd'),format.indexOf('dd')+2);
+        var yyyy = value.substr(format.indexOf('yyyy'),4);
+        var mm = value.substr(format.indexOf('mm'),2);
+        var dd = value.substr(format.indexOf('dd'),2);
 
         return yyyy+mm+dd;
     }
@@ -90,18 +97,20 @@
         if(value == '') return value;
         if(format == undefined || format == "") return value;
 
-        var regExp=/\D/g;
-        value = value.replace(regExp,"");
-        if(value == "00000000") return "";
+        // var regExp=/\D/g;
+        // value = value.replace(regExp,"");
+        // if(value == "00000000") return "";
         
+        format = format.toLowerCase();
+
         var date_format = format;
         date_format = date_format.replace("yyyy",value.substring(0,4));
-        date_format = date_format.replace("MM",value.substring(4,6));
+        date_format = date_format.replace("mm",value.substring(4,6));
         date_format = date_format.replace("dd",value.substring(6));
 
         return date_format; 
     }
-
+    console.log('Korea Date(yyyy.MM.dd) : ' + getFormatDateValue('20160920', 'MM.dd.yyyy'));
     console.log('Korea Date(yyyy.MM.dd) : ' + getUnformatDateValue('2016.09.20', 'yyyy.MM.dd'));
     console.log('US Date(dd.MM.yyyy) : ' + getUnformatDateValue('20.09.2016', 'dd.MM.yyyy'));
     console.log('EU Date(MM.dd.yyyy) : ' + getUnformatDateValue('09.20.2016', 'MM.dd.yyyy'));

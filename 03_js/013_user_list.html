@@ -97,6 +97,22 @@
             {"USER_ID":"paullab006","USER_NAME":"이병헌","EMAIL":"bhlee@gmail.com","MOBILE":"010-3333-4444","GENDER":"남자","BIRTH_DATE":"19900709","EMAIL_YN":"동의","MSG_YN":"거부"}
         ];
 
+        function addRow(row){
+            var h = "";
+            h = h + '<tr onclick="goDetail(\'' + row['USER_ID'] + '\');">';
+            h = h + '<td>' + row['USER_ID'] + '</td>';
+            h = h + '<td class="text-center">' + row['USER_NAME'] + '</td>';
+            h = h + '<td>' + row['EMAIL'] + '</td>';
+            h = h + '<td class="text-center">' + row['MOBILE'] + '</td>';
+            h = h + '<td class="text-center">' + row['GENDER'] + '</td>';
+            h = h + '<td class="text-center">' + row['BIRTH_DATE'] + '</td>';
+            h = h + '<td class="text-center">' + row['EMAIL_YN'] + '</td>';
+            h = h + '<td class="text-center">' + row['MSG_YN'] + '</td>';
+            h = h + '</tr>';
+
+            document.querySelector('#grid1 > tbody').innerHTML = document.querySelector('#grid1 > tbody').innerHTML + h;
+        }
+
         function doSearch(){
             var userid = document.getElementById('userid').value;
             var username = document.getElementById('username').value;
@@ -120,9 +136,9 @@
                         h.push('<td class="text-center">' + data[i]['EMAIL_YN'] + '</td>');
                         h.push('<td class="text-center">' + data[i]['MSG_YN'] + '</td>');
                         h.push('</tr>');
+                        
                     }
-
-                    document.querySelector('#grid1 > tbody').innerHTML = h.join('');
+                    document.querySelector('#grid1 > tbody').innerHTML = h.join();
             //     })
             //     .fail(function( jqxhr, textStatus, error ) {
             //         var err = textStatus + ", " + error;
