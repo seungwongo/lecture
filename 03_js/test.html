@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 1주차 수업</title>
+</head>
+
+<body>
+    <label>ID</label>
+    <input type="text" id="user_id" value="">
+    <label>Name</label>
+    <input type="text" id="user_name">
+    <br>
+    <label>
+        <input type="radio" name="marriage_yn" value="Y"> 기혼</label>
+    <label>
+        <input type="radio" name="marriage_yn" value="N" checked> 미혼</label>
+    <br>
+    <select id="sel">
+        <option value="01">A</option>
+        <option value="02">B</option>
+        <option value="03">C</option>
+    </select>
+    <br>
+    <label>
+        <input type="checkbox" name="interest_area" value="I001"> IT/컴퓨터</label>
+    <label>
+        <input type="checkbox" name="interest_area" value="I002"> 엔터테인먼트</label>
+    <label>
+        <input type="checkbox" name="interest_area" value="I003"> 스포츠</label>
+    <label>
+        <input type="checkbox" name="interest_area" value="I004"> 쇼핑</label>
+    <label>
+        <input type="checkbox" name="interest_area" value="I005"> 도서/책</label>
+    <br>
+    <button onclick="doSave();">Save</button>
+    <script>
+    function doSave() {
+        var id = document.getElementById('user_id').value;
+        var name = document.getElementById('user_name').value;
+
+        if (id == "") {
+            alert("id를 입력하세요. id는 필수 입력값입니다.");
+            document.getElementById('user_id').focus();
+            return;
+        }
+
+        if (name == "") {
+            alert("name를 입력하세요. name는 필수 입력값입니다.");
+            document.getElementById('user_name').focus();
+            return;
+        }
+
+        var radio = document.getElementsByName('marriage_yn');
+        var radio_value = "";
+        var length = radio.length;
+        for (var i = 0; i < length; i++) {
+            if (radio[i].checked) radio_value = radio[i].value;
+        }
+
+        var marriage_yn = document.querySelector('[name=marriage_yn]:checked').value;
+
+        alert(marriage_yn);
+
+        var select_value = document.getElementById('sel').value;
+
+        var interest_area = document.querySelectorAll('[name=interest_area]:checked');
+
+        for(var i=0 ; i<interest_area.length ; i++){
+        	alert(interest_area[i].value);
+        }
+
+        // id에 입력된 값을 가져온다.
+        // name에 입력된 값을 가져온다.
+        // id에 입력된 값이 있는지 체크한다. 없으면 저장할수 없다.
+        // name에 입력된 값이 있는지 체크한다. 없으면 저장할수 없다.
+    }
+    </script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
