@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 3주차 수업</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<h3 class="title">회원정보수정</h3>
+		<form>
+		    <div>
+		        <h4 class="sub-title">기본정보</h4>
+		        <table class="user-table">
+		        	<colgroup>
+		        		<col style="width:30%;">
+		        		<col style="width:70%;">
+		        	</colgroup>
+		            <tr>
+		                <td>
+		                    <label>아이디<span style="padding: 8px 5px 0px;color: #bb162b;">*</span></label>
+		                </td>
+		                <td>
+		                    <span id="user_id"></span>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">이름</label>
+		                </td>
+		                <td>
+		                    <span id="user_name"></span>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">이메일주소</label>
+		                </td>
+		                <td>
+		                    <input type="email" id="email" value="gildong@gmail.com">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">주민등록번호</label>
+		                </td>
+		                <td>
+		                    <span id="social_number"></span>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>생년월일</label>
+		                </td>
+		                <td>
+		                    <span id="birth_date"></span>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>성별</label>
+		                </td>
+		                <td>
+		                    <span id="gender"></span>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">주소</label>
+		                </td>
+		                <td>
+		                    <input type="text" maxlength="5" size="5"> <input type="button" value="찾아보기" class="btn-primary">
+		                    <br>
+		                    <input type="text" style="width:90%;" placeholder="주소(국가/도/시/도로명/번지)" id="address">
+		                    <br>
+		                    <input type="text" style="width:90%;" placeholder="나머지주소(건물명/층수)">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">핸드폰</label>
+		                </td>
+		                <td>
+		                    <input type="text" maxlength="3" size="3" value="" id="mobile1">-
+		                    <input type="text" maxlength="4" size="4" value="" id="mobile2">-
+		                    <input type="text" maxlength="4" size="4" value="" id="mobile3">
+		                </td>
+		            </tr>
+		        </table>
+		    </div>
+		    <div>
+		        <h4 class="sub-title">추가정보</h4>
+		        <table class="user-table">
+		        	<colgroup>
+		        		<col style="width:30%;">
+		        		<col style="width:70%;">
+		        	</colgroup>
+		            <tr>
+		                <td>
+		                    <label>홈페이지</label>
+		                </td>
+		                <td>
+		                    <input type="url" id="homepage" style="width:90%;" value="">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>혼인여부</label>
+		                </td>
+		                <td>
+		                    <label><input type="radio" name="marriage_yn" value="Y"> 기혼</label>
+		                    <label><input type="radio" name="marriage_yn" value="N"> 미혼</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>관심분야</label>
+		                </td>
+		                <td>
+		                    <label><input type="checkbox" name="interest_area" value="I001"> IT/컴퓨터</label>
+		                    <label><input type="checkbox" name="interest_area" value="I002"> 엔터테인먼트</label>
+		                    <label><input type="checkbox" name="interest_area" value="I003"> 스포츠</label>
+		                    <label><input type="checkbox" name="interest_area" value="I004"> 쇼핑</label>
+		                    <label><input type="checkbox" name="interest_area" value="I005"> 도서/책</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>메일수신동의</label>
+		                </td>
+		                <td>
+		                    <label><input type="radio" name="email_yn" value="Y"> 동의</label>
+		                    <label><input type="radio" name="email_yn" value="N"> 거부</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>문자수신동의</label>
+		                </td>
+		                <td>
+		                    <label><input type="radio" name="msg_yn" value="Y"> 동의</label>
+		                    <label><input type="radio" name="msg_yn" value="N"> 거부</label>
+		                </td>
+		            </tr>
+		        </table>
+		    </div>
+		</form>
+		<div class="btn-area">
+	    	<button class="btn-danger" id="btn_save">저장</button>
+	    	<button class="btn-default" id="btn_list">리스트</button>
+	    </div>
+	</div>
+
+	<!-- Script 작성 영역 -->
+	<script src="js/jquery-2.1.1.js"></script>
+	<script src="js/util.js"></script>
+	
+    <script>
+    	function doSave(){
+    		var email = $('#email').val();
+    		var social_number1 = $('#social_number1').val();
+    		var social_number2 = $('#social_number2').val();
+    		var birth_date = $('#birth_date').val();
+    		var oGender = $('[name=gender]');
+    		var gender = $('[name=gender]:checked').val();
+    		var mobile1 = $('#mobile1').val();
+    		var mobile2 = $('#mobile2').val();
+    		var mobile3 = $('#mobile3').val();
+    		var homepage = $('#homepage').val();
+    		var oMarriage = $('[name=marriage_yn]');
+    		var marriage_yn = $('[name=marriage_yn]:checked').val();
+    		var oInterest = $('[name=interest_area]:checked');
+    		var oEmailYN = $('[name=email_yn]');
+    		var email_yn = $('[name=email_yn]:checked').val();
+    		var oMsgYn = $('[name=msg_yn]');
+    		var msg_yn = $('[name=msg_yn]:checked').val();
+
+    		if(pw == ''){
+    			alert('비밀번호를 입력하세요.');
+    			$('#password').focus();
+    			return;
+    		}
+
+    		if(cpw == ''){
+    			alert('비밀번호확인을 입력하세요.');
+    			$('#confirm_password').focus();
+    			return;
+    		}
+
+    		if(pw != cpw){
+    			alert('비밀번호와 비밀번호확인은 같아야 합니다.');
+    			$('#confirm_password').focus();
+    			return;
+    		}
+
+    		data["PASSWORD"] = pw;
+    		data["EMAIL"] = email;
+    		data["SOCIAL_NUMBER1"] = social_number1;
+    		data["SOCIAL_NUMBER2"] = social_number2;
+    		data["BIRTH_DATE"] = birth_date;
+    		data["GENDER"] = gender;
+    		data["MOBILE1"] = mobile1;
+    		data["MOBILE2"] = mobile2;
+    		data["MOBILE3"] = mobile3;
+    		data["HOMEPAGE"] = homepage;
+    		data["MARRIAGE_YN"] = marriage_yn;
+    		data["EMAIL_YN"] = email_yn;
+    		data["MSG_YN"] = msg_yn;
+
+    		var int_area = [];
+    		for(var i=0 ; i<oInterest.length ; i++){
+    			int_area.push($(oInterest[i]).val());
+    		}
+
+    		data["INT_AREA"] = int_area;
+
+    		console.log(data);
+
+    		$.ajax({
+	             url: "update_server_url",	//업데이트 프로그램을 수행하는 서버 url 호출
+	             async: true,
+	             header: {},
+	             data: JSON.stringify(data),
+	             type: "POST",
+	             success: function(data) {
+					document.location.href = '012_user_detail.html';	                
+	             },
+	             error:function(jqxhr, textStatus, error){
+	                var err = textStatus + ", " + error;
+	                console.log(err);
+	             }
+	        });
+    	}
+
+    	function goList(){
+    		window.location.href = '013_user_list.html';
+    	}
+
+    	var data = {
+    		"USER_ID":"paullab0001",
+    		"USER_NAME":"홍길동",
+    		"EMAIL":"gildong@gmail.com",
+    		"SOCIAL_NUMBER":"951201-*******",
+    		"BIRTH_DATE":"19950218",
+    		"GNEDER":"M",
+    		"ADDRESS":"대한민국 제주특별자치도 제주시",
+    		"MOBILE":"010-1233-3456",
+    		"HOMEPAGE":"http://gildong.co.kr",
+    		"MARRIAGE":"N",
+    		"INT_AREA":["I001","I002"],
+    		"EMAIL_YN":"Y",
+    		"MSG_YN":"N",
+    		"MOBILE1":"010",
+    		"MOBILE2":"1223",
+    		"MOBILE3":"3456"
+    	};
+
+    	function loadData(){
+    		$('#user_id').html(data['USER_ID']);
+    		$('#user_name').html(data['USER_NAME']);
+    		$('#email').val(data['EMAIL']);
+    		$('#social_number').html(data['SOCIAL_NUMBER']);
+    		$('#birth_date').html(dateUtil.getFormatValue(data['BIRTH_DATE'], 'yyyy년 MM월 dd일'));
+
+    		if(data['GNEDER'] == 'M'){
+    			$('#gender').html('남자');
+    		}else if(data['GNEDER'] == 'F'){
+    			$('#gender').html('여자');
+    		}
+
+    		$('#address').val(data['ADDRESS']);
+    		$('#mobile1').val(data['MOBILE1']);
+    		$('#mobile2').val(data['MOBILE2']);
+    		$('#mobile3').val(data['MOBILE3']);
+
+    		$('[name=marriage_yn]').each(function(index){
+    			if($(this).val() == data['MARRIAGE']) $(this).attr('checked', true);
+    		});
+
+    		$('#homepage').val(data['HOMEPAGE']);
+
+    		var int_area = {};
+    		for(var i=0 ; i<data['INT_AREA'].length ; i++){
+    			var v = data["INT_AREA"][i];
+    			int_area[v] = v;
+    		}
+
+    		$('[name=interest_area]').each(function(index){
+    			if(int_area[$(this).val()] != undefined) $(this).attr('checked', true);
+    		});
+
+    		$('[name=email_yn]').each(function(index){
+    			if($(this).val() == data['EMAIL_YN']) $(this).attr('checked', true);
+    		});
+
+    		$('[name=msg_yn]').each(function(index){
+    			if($(this).val() == data['MSG_YN']) $(this).attr('checked', true);
+    		});
+    	}
+
+    	$(document).ready(function(){
+    		loadData();
+
+    		$('#btn_save').click(function(){
+    			doSave();
+    		});
+
+    		$('#btn_list').click(function(){
+    			goList();
+    		});
+
+    		$('#email').on('blur', function(){
+    			checkEmail(this);
+    		});	
+
+    		$('#mobile1').keydown(function(e){
+    			checkNumber(event);
+    		});
+
+    		$('#mobile1').keyup(function(e){
+    			moveNext(this, 3, 'mobile2');
+    		});
+
+    		$('#mobile2').keydown(function(e){
+    			checkNumber(event);
+    		});
+
+    		$('#mobile2').keyup(function(e){
+    			moveNext(this, 4, 'mobile3');
+    		});
+
+    		$('#mobile3').keydown(function(e){
+    			checkNumber(event);
+    		});
+    	});
+    </script>
+</body>
+
+</html>

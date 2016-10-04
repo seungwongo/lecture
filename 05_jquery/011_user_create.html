@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 3주차 수업</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<h3 class="title">회원가입</h3>
+		<form id="form1" name="form1" method="post" action="">
+		    <div>
+		        <h4 class="sub-title">기본정보</h4>
+		        <table class="user-table">
+		        	<colgroup>
+		        		<col style="width:30%;">
+		        		<col style="width:70%;">
+		        	</colgroup>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">아이디</label>
+		                </td>
+		                <td>
+		                    <input type="text" maxlength="14" size="14" id="userid" name="userid" autofocus> <input type="button" value="중복검사" class="btn-primary">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">비밀번호</label>
+		                </td>
+		                <td>
+		                    <input type="password" id="password" name="password">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">비밀번호확인</label>
+		                </td>
+		                <td>
+		                    <input type="password" id="confirm_password" name="confirm_password">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">이름</label>
+		                </td>
+		                <td>
+		                    <input type="text" id="username" name="username">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">이메일주소</label>
+		                </td>
+		                <td>
+		                    <input type="email" id="email" name="email">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">주민등록번호</label>
+		                </td>
+		                <td>
+		                    <input type="text" maxlength="6" size="6" id="social_number1" name="social_number1">-
+		                    <input type="password" maxlength="7" size="7" id="social_number2" name="social_number2">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>생년월일</label>
+		                </td>
+		                <td>
+		                    <input type="date" id="birth_date" name="birth_date">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>성별</label>
+		                </td>
+		                <td>
+		                    <label><input type="radio" name="gender" value="M" checked> 남자</label>
+		                    <label><input type="radio" name="gender" value="F"> 여자</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">주소</label>
+		                </td>
+		                <td>
+		                    <input type="text" maxlength="5" size="5"> <input type="button" value="찾아보기" class="btn-primary">
+		                    <br>
+		                    <input type="text" style="width:90%;" placeholder="주소(국가/도/시/도로명/번지)">
+		                    <br>
+		                    <input type="text" style="width:90%;" placeholder="나머지주소(건물명/층수)">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">핸드폰</label>
+		                </td>
+		                <td>
+		                    <input type="text" maxlength="3" size="3" id="mobile1" name="mobile1">-
+		                    <input type="text" maxlength="4" size="4" id="mobile2" name="mobile2">-
+		                    <input type="text" maxlength="4" size="4" id="mobile3" name="mobile3">
+		                </td>
+		            </tr>
+		        </table>
+		    </div>
+		    <div>
+		        <h4 class="sub-title">추가정보</h4>
+		        <table class="user-table">
+		        	<colgroup>
+		        		<col style="width:30%;">
+		        		<col style="width:70%;">
+		        	</colgroup>
+		            <tr>
+		                <td>
+		                    <label>홈페이지</label>
+		                </td>
+		                <td>
+		                    <input type="url" style="width:90%;" id="homepage" name="homepage">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>혼인여부</label>
+		                </td>
+		                <td>
+		                    <label><input type="radio" name="marriage_yn" value="Y"> 기혼</label>
+		                    <label><input type="radio" name="marriage_yn" value="N" checked> 미혼</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>관심분야</label>
+		                </td>
+		                <td>
+		                    <label><input type="checkbox" name="interest_area" value="I001"> IT/컴퓨터</label>
+		                    <label><input type="checkbox" name="interest_area" value="I002"> 엔터테인먼트</label>
+		                    <label><input type="checkbox" name="interest_area" value="I003"> 스포츠</label>
+		                    <label><input type="checkbox" name="interest_area" value="I004"> 쇼핑</label>
+		                    <label><input type="checkbox" name="interest_area" value="I005"> 도서/책</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>메일수신동의</label>
+		                </td>
+		                <td>
+		                    <label><input type="radio" name="email_yn" value="Y" checked> 동의</label>
+		                    <label><input type="radio" name="email_yn" value="N"> 거부</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>문자수신동의</label>
+		                </td>
+		                <td>
+		                    <label><input type="radio" name="msg_yn" value="Y" checked> 동의</label>
+		                    <label><input type="radio" name="msg_yn" value="N"> 거부</label>
+		                </td>
+		            </tr>
+		        </table>
+		    </div>
+		</form>
+		<div class="btn-area">
+	    	<button class="btn-danger" id="btn_save">저장</button>
+	    	<button class="btn-default" id="btn_cancel">취소</button>
+	    </div>
+	</div>
+
+	<!-- Script 작성 영역 -->
+	<script src="js/jquery-2.1.1.js"></script>
+    <script src="js/util.js"></script>
+    
+    <script>
+    	function doCancel(){
+    		document.location.href = '013_user_list.html';
+    	}
+
+    	function doSave(){
+    		var id = $('#userid').val();
+    		var name = $('#username').val();
+    		var pw = $('#password').val();
+    		var cpw = $('#confirm_password').val();
+    		var email = $('#email').val();
+    		var social_number1 = $('#social_number1').val();
+    		var social_number2 = $('#social_number2').val();
+    		var birth_date = $('#birth_date').val();
+    		var oGender = $('[name=gender]');
+    		var gender = $('[name=gender]:checked').val();
+    		var mobile1 = $('#mobile1').val();
+    		var mobile2 = $('#mobile2').val();
+    		var mobile3 = $('#mobile3').val();
+    		var homepage = $('#homepage').val();
+    		var oMarriage = $('[name=marriage_yn]');
+    		var marriage_yn = $('[name=marriage_yn]:checked').val();
+    		var oInterest = $('[name=interest_area]:checked');
+    		var oEmailYN = $('[name=email_yn]');
+    		var email_yn = $('[name=email_yn]:checked').val();
+    		var oMsgYn = $('[name=msg_yn]');
+    		var msg_yn = $('[name=msg_yn]:checked').val();
+
+    		if(id == ''){
+    			alert('아이디를 입력하세요.');
+    			$('#userid').focus();
+    			return;
+    		}
+
+    		if(name == ''){
+    			alert('이름을 입력하세요.');
+    			$('#username').focus();
+    			return;
+    		}
+
+    		if(pw == ''){
+    			alert('비밀번호를 입력하세요.');
+    			$('#password').focus();
+    			return;
+    		}
+
+    		if(cpw == ''){
+    			alert('비밀번호확인을 입력하세요.');
+    			$('#confirm_password').focus();
+    			return;
+    		}
+
+    		if(pw != cpw){
+    			alert('비밀번호와 비밀번호확인은 같아야 합니다.');
+    			$('#confirm_password').focus();
+    			return;
+    		}
+
+    		var data = {};
+    		data["USER_ID"] = id;
+    		data["USER_NAME"] = name;
+    		data["PASSWORD"] = pw;
+    		data["EMAIL"] = email;
+    		data["SOCIAL_NUMBER1"] = social_number1;
+    		data["SOCIAL_NUMBER2"] = social_number2;
+    		data["BIRTH_DATE"] = birth_date;
+    		data["GENDER"] = gender;
+    		data["MOBILE1"] = mobile1;
+    		data["MOBILE2"] = mobile2;
+    		data["MOBILE3"] = mobile3;
+    		data["HOMEPAGE"] = homepage;
+    		data["MARRIAGE_YN"] = marriage_yn;
+    		data["EMAIL_YN"] = email_yn;
+    		data["MSG_YN"] = msg_yn;
+
+    		var int_area = [];
+    		for(var i=0 ; i<oInterest.length ; i++){
+    			int_area.push($(oInterest[i]).val());
+    		}
+
+    		data["INT_AREA"] = int_area;
+
+    		console.log(data);
+
+    		$.ajax({
+	             url: "update_server_url",	//업데이트 프로그램을 수행하는 서버 url 호출
+	             async: true,
+	             header: {},
+	             data: JSON.stringify(data),
+	             type: "POST",
+	             success: function(data) {
+					document.location.href = '012_user_detail.html';	                
+	             },
+	             error:function(jqxhr, textStatus, error){
+	                var err = textStatus + ", " + error;
+	                console.log(err);
+	             }
+	        });
+    	}
+
+    	$(document).ready(function(){
+    		$('#btn_save').click(function(){
+    			doSave();
+    		});
+
+    		$('#btn_cancel').click(function(){
+    			doCancel();
+    		});
+
+    		$('#email').on('blur', function(){
+    			checkEmail(this);
+    		});	
+
+    		$('#social_number1').on('keydown', function(e){
+    			checkNumber(event);
+    		});
+
+    		$('#social_number1').on('keyup', function(e){
+    			moveNext(this, 6, 'social_number2');
+    		});
+
+    		$('#social_number2').keydown(function(e){
+    			checkNumber(event);
+    		});
+
+    		$('#mobile1').keydown(function(e){
+    			checkNumber(event);
+    		});
+
+    		$('#mobile1').keyup(function(e){
+    			moveNext(this, 3, 'mobile2');
+    		});
+
+    		$('#mobile2').keydown(function(e){
+    			checkNumber(event);
+    		});
+
+    		$('#mobile2').keyup(function(e){
+    			moveNext(this, 4, 'mobile3');
+    		});
+
+    		$('#mobile3').keydown(function(e){
+    			checkNumber(event);
+    		});
+    	});
+
+    </script>
+</body>
+
+</html>

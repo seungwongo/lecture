@@ -10,7 +10,7 @@
 <body>
     <div class="container-100">
         <div>
-            <h4 class="sub-title">사용자 조회 <div class="pull-right"><button class="btn-primary" onclick="doSearch();">조회</button><button class="btn-danger" style="margin-left:5px;" onclick="goCreate();">사용자생성</button></div></h4>
+            <h4 class="sub-title">사용자 조회 <div class="pull-right"><button class="btn-primary" id="btn_search">조회</button><button class="btn-danger" style="margin-left:5px;" id="btn_create">사용자생성</button></div></h4>
             <table class="search-table">
                 <colgroup>
                     <col style="width:12%;">
@@ -133,7 +133,7 @@
             if(endIndex > len) endIndex = len;
 
             for(var i=startIndex ; i<endIndex ; i++){
-                h.push('<tr onclick="goDetail(\'' + data[i]['userId'] + '\');">');
+                h.push('<tr data-userid="' + data[i]['userId'] + '">');
                 h.push('<td>' + data[i]['userId'] + '</td>');
                 h.push('<td class="text-center">' + data[i]['name'] + '</td>');
                 h.push('<td>' + data[i]['email'] + '</td>');
@@ -146,6 +146,11 @@
             }
 
             $('#grid1 > tbody').html(h.join(''));
+
+            $('#grid1 > tbody > tr').click(function(){
+                var userid = $(this).attr('data-userid');
+                goDetail(userid);
+            });
 
             renderPagination(pageNo);
 
@@ -203,6 +208,16 @@
             alert(userid);
     		document.location.href = '012_user_detail.html';
     	}
+
+        $(document).ready(function(){
+            $('#btn_search').click(function(){
+                doSearch();
+            });
+
+            $('#btn_create').click(function(){
+                goCreate();
+            });
+        });
     </script>
 </body>
 

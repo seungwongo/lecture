@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 3주차 수업</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<h3 class="title">회원가입</h3>
+	    <div>
+	        <h4 class="sub-title">기본정보</h4>
+	        <table class="user-table">
+	        	<colgroup>
+	        		<col style="width:30%;">
+	        		<col style="width:70%;">
+	        	</colgroup>
+	            <tr>
+	                <td>
+	                    <label>아이디<span style="padding: 8px 5px 0px;color: #bb162b;">*</span></label>
+	                </td>
+	                <td>
+	                    <span id="user_id"></span>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <label class="asterisk">이름</label>
+	                </td>
+	                <td>
+	                    <span id="user_name"></span>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <label class="asterisk">이메일주소</label>
+	                </td>
+	                <td>
+	                	<span id="email"></span>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <label class="asterisk">주민등록번호</label>
+	                </td>
+	                <td>
+	                    <span id="social_number"></span>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <label>생년월일</label>
+	                </td>
+	                <td>
+	                    <span id="birth_date"></span>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <label>성별</label>
+	                </td>
+	                <td>
+	                    <span id="gender"></span>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <label class="asterisk">주소</label>
+	                </td>
+	                <td>
+	                    <span id="address"></span>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <label class="asterisk">핸드폰</label>
+	                </td>
+	                <td>
+	                    <span id="mobile"></span>
+	                </td>
+	            </tr>
+	        </table>
+	    </div>
+	    <div>
+	        <h4 class="sub-title">추가정보</h4>
+	        <table class="user-table">
+	        	<colgroup>
+	        		<col style="width:30%;">
+	        		<col style="width:70%;">
+	        	</colgroup>
+	            <tr>
+	                <td>
+	                    <label>홈페이지</label>
+	                </td>
+	                <td>
+	                    <span id="homepage"></span>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <label>혼인여부</label>
+	                </td>
+	                <td>
+	                    <span id="marriage_yn"></span>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <label>관심분야</label>
+	                </td>
+	                <td>
+	                    <label><input type="checkbox" name="interest_area" value="I001" disabled> IT/컴퓨터</label>
+	                    <label><input type="checkbox" name="interest_area" value="I002" disabled> 엔터테인먼트</label>
+	                    <label><input type="checkbox" name="interest_area" value="I003" disabled> 스포츠</label>
+	                    <label><input type="checkbox" name="interest_area" value="I004" disabled> 쇼핑</label>
+	                    <label><input type="checkbox" name="interest_area" value="I005" disabled> 도서/책</label>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <label>메일수신동의</label>
+	                </td>
+	                <td>
+	                    <span id="email_yn"></span>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <label>문자수신동의</label>
+	                </td>
+	                <td>
+	                    <span id="msg_yn"></span>
+	                </td>
+	            </tr>
+	        </table>
+	    </div>
+	    <div class="btn-area">
+	    	<button class="btn-danger" id="btn_edit">수정</button>
+	    	<button class="btn-default" id="btn_list">리스트</button>
+	    </div>
+	</div>
+
+	<!-- Script 작성 영역 -->
+	<script src="js/jquery-2.1.1.js"></script>
+    <script>
+    	function goUpdate(){
+    		document.location.href = '014_user_update.html';
+    	}
+
+    	function goList(){
+    		document.location.href = '013_user_list.html';
+    	}
+
+    	var data = {
+    		"USER_ID":"paullab0001",
+    		"USER_NAME":"홍길동",
+    		"EMAIL":"gildong@gmail.com",
+    		"SOCIAL_NUMBER":"951201-*******",
+    		"BIRTH_DATE":"1995년 2월 18일",
+    		"GNEDER":"M",
+    		"ADDRESS":"대한민국 제주특별자치도 제주시",
+    		"MOBILE":"010-1233-3456",
+    		"HOMEPAGE":"http://gildong.co.kr",
+    		"MARRIAGE":"N",
+    		"INT_AREA":["I001","I002"],
+    		"EMAIL_YN":"Y",
+    		"MSG_YN":"N",
+    	};
+
+    	function loadData(){
+    		$('#user_id').html(data['USER_ID']);
+    		$('#user_name').html(data['USER_NAME']);
+    		$('#email').html(data['EMAIL']);
+    		$('#social_number').html(data['SOCIAL_NUMBER']);
+    		$('#birth_date').html(data['BIRTH_DATE']);
+
+    		if(data['GNEDER'] == 'M'){
+    			$('#gender').html('남자');
+    		}else if(data['GNEDER'] == 'F'){
+    			$('#gender').html('여자');
+    		}
+
+    		$('#address').html(data['ADDRESS']);
+    		$('#mobile').html(data['MOBILE']);
+
+    		if(data['MARRIAGE'] == 'Y'){
+    			$('#marriage_yn').html('기혼');
+    		}else if(data['MARRIAGE'] == 'N'){
+    			$('#marriage_yn').html('미혼');
+    		}
+
+    		$('#homepage').html(data['HOMEPAGE']);
+
+    		var int_area = {};
+    		for(var i=0 ; i<data['INT_AREA'].length ; i++){
+    			var v = data["INT_AREA"][i];
+    			int_area[v] = v;
+    		}
+
+    		// var oInterest = $('[name=interest_area]');
+    		// var len = oInterest.length;
+    		// for(var i=0 ; i<len ; i++){
+    		// 	if(int_area[$(oInterest[i]).val()] != undefined) $(oInterest[i]).attr('checked', true);
+    		// }
+
+    		$('[name=interest_area]').each(function(index){
+    			if(int_area[$(this).val()] != undefined) $(this).attr('checked', true);
+    		});
+
+    		if(data['EMAIL_YN'] == 'Y'){
+    			$('#email_yn').html('동의');
+    		}else if(data['EMAIL_YN'] == 'N'){
+    			$('#email_yn').html('거부');
+    		}
+
+    		if(data['MSG_YN'] == 'Y'){
+    			$('#msg_yn').html('동의');
+    		}else if(data['MSG_YN'] == 'N'){
+    			$('#msg_yn').html('거부');
+    		}
+    	}
+
+    	$(document).ready(function(){
+    		loadData();
+
+    		$('#btn_edit').click(function(){
+    			goUpdate();
+    		});
+
+    		$('#btn_list').click(function(){
+    			goList();
+    		});
+    	});
+    </script>
+</body>
+
+</html>

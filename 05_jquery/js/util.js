@@ -1,10 +1,10 @@
 function moveNext(obj, len, nextId) {
     if (obj.value.length == len) {
-        document.querySelector('#' + nextId).focus();
+        $('#' + nextId).focus();
     }
 }
 
-function number(event) {
+function checkNumber(event) {
     var key = event.which || event.keyCode;
 
     if ((key >= 48 && key <= 57) || (key >= 96 && key <= 105) || key == 9 || key == 8 || key == 13 || key == 37 || key == 39 || key == 46 || key == 109 || key == 189) {
@@ -14,6 +14,14 @@ function number(event) {
             if (event.preventDefault) event.preventDefault();
             else event.returnValue = false;
         } else e.preventDefault();
+    }
+}
+
+function checkEmail(obj){
+    var regexp  = /^([a-zA-Z0-9_\-\.\+]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    if(!regexp.test(obj.value)){
+        alert('Please input collect email address.');
+        return;
     }
 }
 
@@ -56,9 +64,9 @@ function getCurrentDate(format){
     if(day < 10) day = "0" + day;
 
     if(format != undefined){
-        var date_format = format;
+        var date_format = format.toLowerCase();
         date_format = date_format.replace("yyyy",year);
-        date_format = date_format.replace("MM",month);
+        date_format = date_format.replace("mm",month);
         date_format = date_format.replace("dd",day);
 
         return date_format;
@@ -80,9 +88,9 @@ function getDateFromCurrentDate(interval, format){
     if(day < 10) day = "0" + day;
 
     if(format != undefined){
-        var date_format = format;
+        var date_format = format.toLowerCase();
         date_format = date_format.replace("yyyy",year);
-        date_format = date_format.replace("MM",month);
+        date_format = date_format.replace("mm",month);
         date_format = date_format.replace("dd",day);
 
         return date_format;
@@ -130,9 +138,9 @@ var dateUtil = {
         if(day < 10) day = "0" + day;
 
         if(format != undefined){
-            var date_format = format;
+            var date_format = format.toLowerCase();
             date_format = date_format.replace("yyyy",year);
-            date_format = date_format.replace("MM",month);
+            date_format = date_format.replace("mm",month);
             date_format = date_format.replace("dd",day);
 
             return date_format;
@@ -153,9 +161,9 @@ var dateUtil = {
         if(day < 10) day = "0" + day;
 
         if(format != undefined){
-            var date_format = format;
+            var date_format = format.toLowerCase();
             date_format = date_format.replace("yyyy",year);
-            date_format = date_format.replace("MM",month);
+            date_format = date_format.replace("mm",month);
             date_format = date_format.replace("dd",day);
 
             return date_format;
