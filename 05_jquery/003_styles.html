@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 3주차 수업</title>
+    <style>
+    .border-red {
+        border:2px solid red;
+    }
+
+    .border-green {
+        border:2px solid green;
+    }
+
+    .border-default {
+        border-width:;
+        border-color:;
+        border-style:;
+    }
+    </style>
+</head>
+
+<body>
+    Text:
+    <br>
+    <input type="text" id="text1" onblur="changeBorder();">
+    <br> Checkbox:
+    <br>
+    <label>
+        <input type="checkbox" name="chk_interest" value="it"> IT/컴퓨터</label>
+    <label>
+        <input type="checkbox" name="chk_interest" value="entertainment"> 엔터테인먼트</label>
+    <label>
+        <input type="checkbox" name="chk_interest" value="sports"> 스포츠</label>
+    <label>
+        <input type="checkbox" name="chk_interest" value="shoping"> 쇼핑</label>
+    <label>
+        <input type="checkbox" name="chk_interest" value="book"> 도서/책</label>
+    <br> Radio(이메일 수신):
+    <br>
+    <label>
+        <input type="radio" name="radio_email_yn" value="Y" onclick="showEmail();"> 동의</label>
+    <label>
+        <input type="radio" name="radio_email_yn" value="N" onclick="hideEmail();" checked> 거부</label>
+        <input type="text" id="email" style="display:none;">
+    <br> Select:
+    <br>
+    <select id="select1">
+        <option value="KO">Korea</option>
+        <option value="CN">China</option>
+        <option value="JP">Japan</option>
+    </select>
+    
+    <br>
+
+    <script src="js/jquery-2.1.1.js"></script>
+    <script>
+    function changeBorder(){
+        var oText1 = $('#text1');
+
+        oText1.removeClass('border-default');
+        oText1.removeClass('border-red');
+        oText1.removeClass('border-green');
+
+        if(oText1.val() == 'red'){
+            oText1.addClass('border-red');
+        }else if(oText1.val() == 'green'){
+            oText1.addClass('border-green');
+        }else{
+            oText1.addClass('border-default');
+        }
+    }
+
+    function showEmail(){
+        $('#email').css('display','');
+    }
+
+    function hideEmail(){
+        $('#email').css('display','none');
+    }
+
+    </script>
+</body>
+
+</html>

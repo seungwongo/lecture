@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 3주차 수업</title>
+</head>
+
+<body>
+    Text:
+    <br>
+    <input type="text" id="text1">
+    <br> Select:
+    <br>
+    <select id="select1">
+        <option value="KO">Korea</option>
+        <option value="CN">China</option>
+        <option value="JP">Japan</option>
+    </select>
+    <br>
+    Number:
+    <br>
+    <input type="text" id="text2">
+    <br>
+	<button id="btn">Click</button>
+	<br>
+
+    <script src="js/jquery-2.1.1.js"></script>
+    <script>
+    function blurInputText(val){
+    	alert(val);
+    }
+
+    function changeSelect(val){
+    	alert(val);
+    }
+
+    function keydownInputText(event){
+        var key = event.which || event.keyCode;
+
+        alert(key);
+    }
+
+    function clickButton(){
+    	var text1 = document.getElementById('text1').value;
+    	var select1 = document.querySelector('#select1').value;
+
+    	alert(text1);
+    	alert(select1);
+    }
+
+    $(document).ready(function(){
+        $('#text1').blur(function(e){
+            blurInputText($(this).val());
+        });
+
+        // $('#text1').on('blur', function(e){
+        //     blurInputText($(this).val());
+        // });
+
+        $('#select1').change(function(e){
+            changeSelect($(this).val());
+        });
+
+        $('#text2').keydown(function(e){
+            keydownInputText(e);
+        });
+
+        $('#btn').click(function(e){
+            clickButton();
+        });
+    });
+    </script>
+</body>
+
+</html>
