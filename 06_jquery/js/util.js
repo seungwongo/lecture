@@ -69,6 +69,31 @@
             $('#'+nextId).focus();
         }
     };
+
+    $.fn.uppercase = function(){
+        var _input = this;
+        _input.on('keyup', function(){
+            _input.val(_input.val().toUpperCase());
+        });
+    };
+
+    $.fn.lowercase = function(){
+        var _input = this;
+        _input.on('keyup', function(){
+            _input.val(_input.val().toLowerCase());
+        });
+    };
+
+    $.fn.fixedLengthField = function(len){
+        var _input = this;
+        _input.on('blur', function(){
+            if(_input.val().length != len){
+                alert('You must enter ' + len + ' length characters.');
+                _input.focus();
+                return;
+            }
+        });
+    };
 })(jQuery);
 
 var dateUtil = {
