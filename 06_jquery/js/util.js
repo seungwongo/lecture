@@ -146,7 +146,7 @@ var dateUtil = {
         }
     },
 
-    getDateFromCurrentDate(interval, format){
+    getDateFromCurrentDate: function(interval, format){
         var now = new Date();
         var date = new Date(Date.parse(now) + (interval*1000*60*60*24));
 
