@@ -56,7 +56,7 @@
         var _input = this;
         _input.on('blur', function(e){
             var regexp  = /^([a-zA-Z0-9_\-\.\+]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-            if(!regexp.test(obj.value)){
+            if(!regexp.test(_input.val())){
                 alert('Please input collect email address.');
                 return;
             }
@@ -65,9 +65,11 @@
 
     $.fn.moveNext = function(len, nextId){
         var _input = this;
-        if(_input.val().length == len) {
-            $('#'+nextId).focus();
-        }
+        _input.on('keyup', function(){
+            if(_input.val().length == len) {
+                $('#'+nextId).focus();
+            }
+        });
     };
 
     $.fn.uppercase = function(){
