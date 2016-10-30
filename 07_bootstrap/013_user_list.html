@@ -94,7 +94,8 @@
                     </div>
                 </div>
                 <div class="col-md-2" style="text-align: right;">
-                    <button type="submit" class="btn btn-primary" id="btn_search"><i class="fa fa-search"></i> 조회</button>
+                    <button type="button" class="btn btn-primary" id="btn_search"><i class="fa fa-search"></i> 조회</button>
+                    <button type="button" class="btn btn-danger" id="btn_create"><i class="fa fa-user"></i> 생성</button>
                 </div>
             </div>
         </div>
@@ -253,6 +254,10 @@
 
         $('#btn_search').click(function() {
             doSearch();
+        });
+
+        $('#btn_create').click(function() {
+            document.location.href = '011_user_create.html';
         });
 
     });
