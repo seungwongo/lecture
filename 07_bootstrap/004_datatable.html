@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 7주차 수업</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/plugins/dataTables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="css/plugins/dataTables/responsive.bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project name</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">사용자관리 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="013_user_list.html">사용자리스트</a></li>
+                            <li><a href="011_user_create.html">사용자생성</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plugins <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="001_icheck.html">iCheck</a></li>
+                            <li><a href="002_sweetalert.html">Sweet Alert</a></li>
+                            <li><a href="003_datepicker.html">Datepicker</a></li>
+                            <li class="active"><a href="004_datatable.html">Datatable</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Default</div>
+                    <div class="panel-body">
+                        <table id="datatable_default" class="table table-striped table-bordered table-hover dt-responsive nowrap" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th data-priority="1" class="text-center">Id</th>
+                                    <th data-priority="2" class="text-center">Name</th>
+                                    <th data-priority="3" class="text-center">Email</th>
+                                    <th data-priority="4" class="text-center">Phone</th>
+                                    <th data-priority="5" class="text-center">Company</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Page Length</div>
+                    <div class="panel-body">
+                        <table id="datatable_page_length" class="table table-striped table-bordered table-hover dt-responsive nowrap" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th data-priority="1" class="text-center">Id</th>
+                                    <th data-priority="2" class="text-center">Name</th>
+                                    <th data-priority="3" class="text-center">Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Culumn Ordering</div>
+                    <div class="panel-body">
+                        <table id="datatable_ordering" class="table table-striped table-bordered table-hover dt-responsive nowrap" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th data-priority="1" class="text-center">Id</th>
+                                    <th data-priority="2" class="text-center">Name</th>
+                                    <th data-priority="3" class="text-center">Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Custom Detail</div>
+                    <div class="panel-body">
+                        <table id="datatable_detail" class="table table-striped table-bordered table-hover dt-responsive nowrap" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th data-priority="1" class="text-center">Id</th>
+                                    <th data-priority="2" class="text-center">Name</th>
+                                    <th data-priority="3" class="text-center">Email</th>
+                                    <th data-priority="4" class="text-center">Phone</th>
+                                    <th data-priority="5" class="text-center">Company</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Locales - German (DE)</div>
+                    <div class="panel-body">
+                        <table id="datatable_locale" class="table table-striped table-bordered table-hover dt-responsive nowrap" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th data-priority="1" class="text-center">Id</th>
+                                    <th data-priority="2" class="text-center">Name</th>
+                                    <th data-priority="3" class="text-center">Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Datatable with iCheck (Checkbox)</div>
+                    <div class="panel-body">
+                        <table id="datatable_checkbox" class="table table-striped table-bordered table-hover dt-responsive nowrap" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th data-priority="1" class="text-center" style="width:50px;">
+                                        <div class="i-checks">
+                                            <input type="checkbox" value="" id="chk_all">
+                                        </div>
+                                    </th>
+                                    <th data-priority="2" class="text-center">Id</th>
+                                    <th data-priority="3" class="text-center">Name</th>
+                                    <th data-priority="4" class="text-center">Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Datatable with iCheck (Radio button)</div>
+                    <div class="panel-body">
+                        <table id="datatable_radio" class="table table-striped table-bordered table-hover dt-responsive nowrap" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th data-priority="1" class="text-center" style="width:50px;"></th>
+                                    <th data-priority="2" class="text-center">Id</th>
+                                    <th data-priority="3" class="text-center">Name</th>
+                                    <th data-priority="4" class="text-center">Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+    <script src="js/plugins/dataTables/datatables.min.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap.min.js"></script>
+    <script src="js/plugins/dataTables/dataTables.responsive.min.js"></script>
+    <script src="js/plugins/dataTables/responsive.bootstrap.min.js"></script>
+    <script>
+    function renderTable1(data) {
+        var table = $('#datatable_default').DataTable({
+            "retrieve": true,
+            "data": data,
+            "columns": [
+                {"data": "userId"}, 
+                {"data": "name"}, 
+                {"data": "email"}, 
+                {"data": "phone"}, 
+                {"data": "company"}
+            ]
+        });
+    }
+
+    function renderTable2(data) {
+        var table = $('#datatable_page_length').DataTable({
+            "retrieve": true,
+            "data": data,
+            "columns": [
+                {"data": "userId"}, 
+                {"data": "name"}, 
+                {"data": "email"}
+            ],
+            "pageLength": 5,
+            "dom": "<'row'<'col-sm-12'tr>>" + "<'row paging-bar'<'col-sm-5'i><'col-sm-7'p>>"
+        });
+    }
+
+    function renderTable3(data) {
+        var table = $('#datatable_ordering').DataTable({
+            "retrieve": true,
+            "data": data,
+            "columns": [
+                {"data": "userId"}, 
+                {"data": "name"}, 
+                {"data": "email"}
+            ],
+            "pageLength": 5,
+            "dom": "<'row'<'col-sm-12'tr>>" + "<'row paging-bar'<'col-sm-5'i><'col-sm-7'p>>",
+            order:[1, 'asc']
+        });
+    }
+
+    function renderTable4(data) {
+        var table = $('#datatable_detail').DataTable({
+            "retrieve": true,
+            "data": data,
+            "columns": [
+                {"data": "userId"}, 
+                {"data": "name"}, 
+                {"data": "email"}, 
+                {"data": "phone", "className":"none"}, 
+                {"data": "company", "className":"none"}
+            ],
+            "pageLength": 5,
+            "dom": "<'row'<'col-sm-12'tr>>" + "<'row paging-bar'<'col-sm-5'i><'col-sm-7'p>>",
+            responsive: {
+                details: {
+                    renderer: function(api, rowIdx, columns) {
+
+                        var data = $.map(columns, function(col, i) {
+                            return col.hidden ?
+                                '<tr data-dt-row="' + rowIdx + '" data-dt-column="' + i + '">' +
+                                '<td style="width:50%;">' + col.title + '</td> ' +
+                                '<td style="width:50%;white-space:normal;">' + col.data + '</td>' +
+                                '</tr>' :
+                                '';
+                        }).join('');
+
+                        return data ?
+                            $('<div />').append('<h4 style="border-left:5px solid #ea485e;padding-left:3px;">Detail</h4>').append($('<table class="table table-bordered" />').append(data)) :
+                            false;
+                    }
+                }
+            }
+
+        });
+    }
+
+    function renderTable5(data) {
+        var table = $('#datatable_locale').DataTable({
+            "retrieve": true,
+            "data": data,
+            "language": {
+                "url": "js/plugins/dataTables/locales/datatable_de.json"
+            },
+            "columns": [
+                {"data": "userId"}, 
+                {"data": "name"}, 
+                {"data": "email"}
+            ],
+            "pageLength": 5,
+            "dom": "<'row'<'col-sm-12'tr>>" + "<'row paging-bar'<'col-sm-5'i><'col-sm-7'p>>"
+        });
+    }
+
+    var _datatable_checkbox = null;
+    function renderTable6(data) {
+        _datatable_checkbox = $('#datatable_checkbox').DataTable({
+            "retrieve": true,
+            "data": data,
+            "columns": [
+                {
+                    "sortable": false,
+                    "orderable": false,
+                    "data": "selected",
+                    "className": "text-center"
+                }, 
+                {"data": "userId"}, 
+                {"data": "name"}, 
+                {"data": "email"}
+            ],
+
+            "columnDefs": [
+                {
+                    "targets": [0],
+                    "data": "selected",
+                    "render": function(data, type, row, meta) {
+                        var sChecked = '';
+                        if(data) sChecked = ' checked=""';
+                        return '<div class="i-checks"><input type="checkbox" value="' + row['userId'] + '" name="chk"' + sChecked + '></div>'
+                    }
+                }
+            ],
+           
+            "pageLength": 5,
+            order:[1, 'asc'],
+            "dom": "<'row'<'col-sm-12'tr>>" + "<'row paging-bar'<'col-sm-5'i><'col-sm-7'p>>",
+
+            "initComplete": function(settings, json) {
+                bindIChecksForCheckbox();
+
+                $('#chk_all').iCheck({
+                    checkboxClass: 'icheckbox_square-green',
+                    radioClass: 'iradio_square-green',
+                }).on('ifChecked', function(event) {
+                    $("[name='chk']").each(function(index){
+                        $(this).attr('checked', true);
+                        $(this).parent().addClass('checked');
+                    });
+
+                    var data = _datatable_checkbox.rows().data();
+                    var len = data.length;
+                    for(var i=0 ; i<len ; i++){
+                        data[i]['selected'] = true;
+                    }
+
+                    _datatable_checkbox.rows().invalidate();
+                    bindIChecksForCheckbox();
+                }).on('ifUnchecked', function(event) {
+                    $("[name='chk']").each(function(index){
+                        $(this).attr('checked', false);
+                        $(this).parent().removeClass('checked');
+                    });
+
+                    var data = _datatable_checkbox.rows().data();
+                    var len = data.length;
+                    for(var i=0 ; i<len ; i++){
+                        data[i]['selected'] = false;
+                    }
+
+                    _datatable_checkbox.rows().invalidate();
+                    bindIChecksForCheckbox();
+                });
+            }
+        });
+
+        $('#datatable_checkbox').on('draw.dt', function() {
+            bindIChecksForCheckbox();
+        });
+    }
+
+    function bindIChecksForCheckbox() {
+        $('#datatable_checkbox > tbody .i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        }).on('ifChecked', function(event) {
+            var tr = this;
+            while(tr.tagName != 'TR') tr = tr.parentNode;
+
+            _datatable_checkbox.row(tr).data()['selected'] = true;
+        }).on('ifUnchecked', function(event) {
+            var tr = this;
+            while(tr.tagName != 'TR') tr = tr.parentNode;
+
+            _datatable_checkbox.row(tr).data()['selected'] = false;
+        });
+    }
+
+    var _datatable_radio = null;
+    var _selected_radio_data = {};
+
+    function renderTable7(data) {
+        _datatable_radio = $('#datatable_radio').DataTable({
+            "retrieve": true,
+            "data": data,
+            "columns": [
+                {
+                    "sortable": false,
+                    "orderable": false,
+                    "data": "selected",
+                    "className": "text-center"
+                }, 
+                {"data": "userId"}, 
+                {"data": "name"}, 
+                {"data": "email"}
+            ],
+
+            "columnDefs": [
+                {
+                    "targets": [0],
+                    "data": "selected",
+                    "render": function(data, type, row, meta) {
+                        var sChecked = '';
+                        if(data) sChecked = ' checked=""';
+                        return '<div class="i-checks"><input type="radio" value="' + row['userId'] + '" name="t_radio"' + sChecked + '></div>'
+                    }
+                }
+            ],
+           
+            "pageLength": 5,
+            order:[1, 'asc'],
+            "dom": "<'row'<'col-sm-12'tr>>" + "<'row paging-bar'<'col-sm-5'i><'col-sm-7'p>>",
+
+            "initComplete": function(settings, json) {
+                bindIChecksForRadio();
+            }
+        });
+
+        $('#datatable_radio').on('draw.dt', function() {
+            bindIChecksForRadio();
+        });
+    }
+
+    function bindIChecksForRadio() {
+        $('#datatable_radio > tbody .i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        }).on('ifChecked', function(event) {
+            var tr = this;
+            while(tr.tagName != 'TR') tr = tr.parentNode;
+
+            _selected_radio_data = _datatable_radio.row(tr).data();
+        });
+    }
+
+    function loadTableData() {
+        var param = {};
+
+        $.getJSON( "json/table.model.json", param )
+            .done(function( data ) {
+                renderTable1(data["TableData"]);
+                renderTable2(data["TableData"]);
+                renderTable3(data["TableData"]);
+                renderTable4(data["TableData"]);
+                renderTable5(data["TableData"]);
+                renderTable6(data["TableData"]);
+                renderTable7(data["TableData"]);
+            })
+            .fail(function( jqxhr, textStatus, error ) {
+                var err = textStatus + ", " + error;
+                swal('Error', "Request Failed: " + err, 'error');
+            }
+        );
+    }
+
+    $(document).ready(function() {
+        loadTableData();
+    });
+    </script>
+</body>
+
+</html>
