@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 7주차 수업</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/datepicker/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <style>
+    .panel-body {
+        padding-left: 25px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project name</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">사용자관리 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="013_user_list.html">사용자리스트</a></li>
+                            <li><a href="011_user_create.html">사용자생성</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plugins <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="001_icheck.html">iCheck</a></li>
+                            <li><a href="002_sweetalert.html">Sweet Alert</a></li>
+                            <li class="active"><a href="003_datepicker.html">Datepicker</a></li>
+                            <li><a href="004_datatable.html">Datatable</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Style</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label>Default</label>
+                                        <div class="input-group date" id='datepicker1'>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" class="input-sm form-control" placeholder="" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Format</label>
+                                        <div class="input-group date" id='datepicker2'>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" class="input-sm form-control" placeholder="mm-dd-yyyy" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Week Start : Monday</label>
+                                        <div class="input-group date" id='datepicker3'>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" class="input-sm form-control" placeholder="" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Day of week disabled : Monday</label>
+                                        <div class="input-group date" id='datepicker4'>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" class="input-sm form-control" placeholder="" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Day of week highlighted : Monday</label>
+                                        <div class="input-group date" id='datepicker5'>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" class="input-sm form-control" placeholder="" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Show calendar week</label>
+                                        <div class="input-group date" id='datepicker6'>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" class="input-sm form-control" placeholder="" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">View Mode</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label>Day</label>
+                                        <div class="input-group date" id='datepicker7'>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" class="input-sm form-control" placeholder="" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Month</label>
+                                        <div class="input-group date" id='datepicker8'>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" class="input-sm form-control" placeholder="" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Year</label>
+                                        <div class="input-group date" id='datepicker9'>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            <input type="text" class="input-sm form-control" placeholder="" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/datepicker/bootstrap-datepicker.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#datepicker1').datepicker({
+            todayHighlight: true,
+            autoclose: true
+        });
+
+        $('#datepicker2').datepicker({
+            todayHighlight: true,
+            format:'mm-dd-yyyy',
+            autoclose: true
+        });
+
+        $('#datepicker3').datepicker({
+            todayHighlight: true,
+            weekStart: 1,
+            autoclose: true
+        });
+
+        $('#datepicker4').datepicker({
+            todayHighlight: true,
+            daysOfWeekDisabled: "1",
+            autoclose: true
+        });
+
+        $('#datepicker5').datepicker({
+            todayHighlight: true,
+            daysOfWeekHighlighted: "1",
+            autoclose: true
+        });
+
+        $('#datepicker6').datepicker({
+            todayHighlight: true,
+            calendarWeeks: true,
+            autoclose: true
+        });
+
+        $('#datepicker7').datepicker({
+            format:'mm-dd-yyyy',
+            startView: 0,
+            minViewMode: 0,
+            maxViewMode: 2,
+            autoclose: true
+        });
+
+        $('#datepicker8').datepicker({
+            format:'mm-yyyy',
+            startView: 1,
+            minViewMode: 1,
+            maxViewMode: 2,
+            autoclose: true
+        });
+
+        $('#datepicker9').datepicker({
+            format:'yyyy',
+            startView: 2,
+            minViewMode: 2,
+            maxViewMode: 2,
+            autoclose: true
+        });
+    });
+    </script>
+</body>
+
+</html>
