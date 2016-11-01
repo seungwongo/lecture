@@ -239,22 +239,12 @@
     function doSave() {
         var id = $('#userid').val();
         var name = $('#username').val();
-        var pw = $('#password').val();
-        var cpw = $('#confirm_password').val();
         var email = $('#email').val();
-        var social_number1 = $('#social_number1').val();
-        var social_number2 = $('#social_number2').val();
         var birth_date = $('#birth_date').val();
-        var gender = '';
 
         $('[name=gender]').each(function(){
         	if($(this).parent().hasClass('checked')) gender = $(this).val();
         });
-
-        // var oGender = $('[name=gender]');
-        // for(var i=0 ; i<oGender.length ; i++){
-        // 	if($(oGender[i]).parent().hasClass('checked')) gender = $(oGender[i]).val();
-        // }
 
         var mobile1 = $('#mobile1').val();
         var mobile2 = $('#mobile2').val();
@@ -280,36 +270,6 @@
         $('[name=msg_yn]').each(function(){
         	if($(this).parent().hasClass('checked')) msg_yn = $(this).val();
         });
-
-        if (id == '') {
-            alert('아이디를 입력하세요.');
-            $('#userid').focus();
-            return;
-        }
-
-        if (name == '') {
-            alert('이름을 입력하세요.');
-            $('#username').focus();
-            return;
-        }
-
-        if (pw == '') {
-            alert('비밀번호를 입력하세요.');
-            $('#password').focus();
-            return;
-        }
-
-        if (cpw == '') {
-            alert('비밀번호확인을 입력하세요.');
-            $('#confirm_password').focus();
-            return;
-        }
-
-        if (pw != cpw) {
-            alert('비밀번호와 비밀번호확인은 같아야 합니다.');
-            $('#confirm_password').focus();
-            return;
-        }
 
         var data = {};
         data["USER_ID"] = id;
