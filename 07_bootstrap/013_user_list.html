@@ -71,7 +71,10 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="userid">아이디</label>
-                        <input type="text" class="form-control" id="userid">
+                        <div class="input-group">
+                            <input type="text" class="input-sm form-control" placeholder="" value="" id="userid">
+                            <span class="input-group-addon" id="btn_userid"><i class="fa fa-search"></i></span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -128,6 +131,45 @@
         </div>
     </div>
     <!-- /container -->
+
+    <!-- Modal -->
+    <div class="modal" id="modal_userid" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">User ID</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="input-group">
+                                <input type="text" class="input-sm form-control" id="modal_name" placeholder="Name" value="">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-sm btn-primary" id="modal_valuehelp_btn_search"><i class="fa fa-search"></i> Search</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive" style="height:300px;margin-top:5px;">
+                        <table class="table table-bordered table-striped table-hover" id="modal_valuehelp_table">
+                            <thead>
+                                <th>ID</th>
+                                <th>NAME</th>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.Modal -->
+
     <script src="js/jquery-2.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- Sweet alert -->
@@ -265,6 +307,10 @@
 
         $('#btn_create').click(function() {
             document.location.href = '011_user_create.html';
+        });
+
+        $('#btn_userid').click(function(){
+            $('#modal_userid').modal('show');
         });
 
     });
