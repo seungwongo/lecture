@@ -75,10 +75,10 @@
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingOne">
                             <h4 class="panel-title">
-						        <a role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						          기본정보
-						        </a>
-					      	</h4>
+                                <a role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                  기본정보
+                                </a>
+                            </h4>
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
@@ -86,9 +86,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">아이디</label>
                                         <div class="col-sm-9">
-                                            <div class="input-group">
-                                                <span id="userid"></span>
-                                            </div>
+                                            <span id="userid"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -138,10 +136,10 @@
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingTwo">
                             <h4 class="panel-title">
-						        <a class="collapsed" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-						        	추가정보
-						        </a>
-					      	</h4>
+                                <a class="collapsed" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    추가정보
+                                </a>
+                            </h4>
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
                             <div class="panel-body">
@@ -153,13 +151,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">성별</label>
+                                        <label class="col-sm-3 control-label">결혼여부</label>
                                         <div class="col-sm-9">
                                             <div class="form-inline i-checks">
                                                 <label>
-                                                    <input type="radio" name="marriage_yn" value="M" class="form-control"> 기혼</label>
+                                                    <input type="radio" name="marriage_yn" value="Y" class="form-control"> 기혼</label>
                                                 <label>
-                                                    <input type="radio" name="marriage_yn" value="F" class="form-control"> 미혼</label>
+                                                    <input type="radio" name="marriage_yn" value="N" class="form-control"> 미혼</label>
                                             </div>
                                         </div>
                                     </div>
@@ -237,13 +235,12 @@
     }
 
     function doSave() {
-        var id = $('#userid').val();
-        var name = $('#username').val();
         var email = $('#email').val();
         var birth_date = $('#birth_date').val();
+        var gender = '';
 
         $('[name=gender]').each(function(){
-        	if($(this).parent().hasClass('checked')) gender = $(this).val();
+            if($(this).parent().hasClass('checked')) gender = $(this).val();
         });
 
         var mobile1 = $('#mobile1').val();
@@ -253,31 +250,31 @@
 
         var marriage_yn = '';
         $('[name=marriage_yn]').each(function(){
-        	if($(this).parent().hasClass('checked')) marriage_yn = $(this).val();
+            if($(this).parent().hasClass('checked')) marriage_yn = $(this).val();
         });
 
         var oInterest = [];
         $('[name=interest_area]:checked').each(function(){
-        	if($(this).parent().hasClass('checked')) oInterest.push(this);
+            if($(this).parent().hasClass('checked')) oInterest.push(this);
         });
 
         var email_yn = '';
         $('[name=email_yn]').each(function(){
-        	if($(this).parent().hasClass('checked')) email_yn = $(this).val();
+            if($(this).parent().hasClass('checked')) email_yn = $(this).val();
         });
 
         var msg_yn = '';
         $('[name=msg_yn]').each(function(){
-        	if($(this).parent().hasClass('checked')) msg_yn = $(this).val();
+            if($(this).parent().hasClass('checked')) msg_yn = $(this).val();
         });
 
         var data = {};
-        data["USER_ID"] = id;
-        data["USER_NAME"] = name;
-        data["PASSWORD"] = pw;
+        // data["USER_ID"] = id;
+        // data["USER_NAME"] = name;
+        // data["PASSWORD"] = pw;
         data["EMAIL"] = email;
-        data["SOCIAL_NUMBER1"] = social_number1;
-        data["SOCIAL_NUMBER2"] = social_number2;
+        // data["SOCIAL_NUMBER1"] = social_number1;
+        // data["SOCIAL_NUMBER2"] = social_number2;
         data["BIRTH_DATE"] = birth_date;
         data["GENDER"] = gender;
         data["MOBILE1"] = mobile1;
@@ -305,14 +302,14 @@
             type: "POST",
             success: function(data) {
                 swal({
-	                title: "Saved!",   
-	                text: "Your request has sent.",   
-	                type: "success",   
-	                showCancelButton: false,
-	                confirmButtonText: "Ok"
-	            },function(){
-	                document.location.href = '012_user_detail.html';
-	            });
+                    title: "Saved!",   
+                    text: "Your request has sent.",   
+                    type: "success",   
+                    showCancelButton: false,
+                    confirmButtonText: "Ok"
+                },function(){
+                    document.location.href = '012_user_detail.html';
+                });
             },
             error: function(jqxhr, textStatus, error) {
                 var err = textStatus + ", " + error;
@@ -353,13 +350,13 @@
             $('#gender').html('여자');
         }
 
-        $('#address').val(data['ADDRESS']);
         $('#mobile1').val(data['MOBILE1']);
         $('#mobile2').val(data['MOBILE2']);
         $('#mobile3').val(data['MOBILE3']);
 
         $('[name=marriage_yn]').each(function(index){
-            if($(this).val() == data['MARRIAGE']) $(this).attr('checked', true);
+
+            if($(this).val() == data['MARRIAGE']) $(this).parent().addClass('checked');
         });
 
         $('#homepage').val(data['HOMEPAGE']);
@@ -397,7 +394,7 @@
             radioClass: 'iradio_square-green',
         });
 
-		$('#btn_save').click(function(){
+        $('#btn_save').click(function(){
             swal({   
                 title: "Are you sure to save?",   
                 text: "You won't be able to revert this!",   
@@ -408,20 +405,23 @@
                 showLoaderOnConfirm: true,
                 closeOnConfirm: false
             }, function(){   
-            	doSave();
+                doSave();
             });
         });
 
-		$('#btn_cancel').click(function(){
-			doCancel();
-		});
+        $('#btn_cancel').click(function(){
+            doCancel();
+        });
 
-		$('#email').email();
-		$('#mobile1').number();
-		$('#mobile1').moveNext(3, 'mobile2');
-		$('#mobile2').number();
-		$('#mobile2').moveNext(4, 'mobile3');
-		$('#mobile3').number();
+        $('#email').email();
+        $('#social_number1').number();
+        $('#social_number1').moveNext(6, 'social_number2');
+        $('#social_number2').number();
+        $('#mobile1').number();
+        $('#mobile1').moveNext(3, 'mobile2');
+        $('#mobile2').number();
+        $('#mobile2').moveNext(4, 'mobile3');
+        $('#mobile3').number();
 
         loadData();
     });
