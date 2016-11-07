@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 7주차 수업</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/ionRangeSlider/ion.rangeSlider.css" rel="stylesheet">
+    <link href="css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+    
+</head>
+
+<body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project name</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plugins <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="001_icheck.html">iCheck</a></li>
+                            <li><a href="002_sweetalert.html">Sweet Alert</a></li>
+                            <li><a href="003_datepicker.html">Datepicker</a></li>
+                            <li><a href="004_datatable.html">Datatable</a></li>
+                            <li><a href="005_summernote.html">Summernote</a></li>
+                            <li class="active"><a href="006_rangeslider.html">iron.RangeSlider</a></li>
+                            <li><a href="007_jstree.html">jsTree</a></li>
+                            <li><a href="008_select2.html">Select2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <pre>
+$("#range_01").ionRangeSlider();
+                                        </pre>
+            </div>
+            <div class="col-md-6">
+                <lable>Start without params</lable>
+                <input type="text" id="range_01">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <pre>
+$("#range_02").ionRangeSlider({
+    min: 100,
+    max: 1000,
+    from: 550
+});
+                                        </pre>
+            </div>
+            <div class="col-md-6">
+                <lable>Set min value, max value and start point</lable>
+                <input type="text" id="range_02">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <pre>
+$("#range_03").ionRangeSlider({
+    type: "double",
+    grid: true,
+    min: 0,
+    max: 1000,
+    from: 200,
+    to: 800,
+    prefix: "$"
+});
+                                        </pre>
+            </div>
+            <div class="col-md-6">
+                <lable>Set type to double and specify range, also showing grid and adding prefix "$"</lable>
+                <input type="text" id="range_03">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <pre>
+$("#range_04").ionRangeSlider({
+    type: "double",
+    grid: true,
+    min: -1000,
+    max: 1000,
+    from: -500,
+    to: 500
+});
+                                        </pre>
+            </div>
+            <div class="col-md-6">
+                <lable>Set up range with negative values</lable>
+                <input type="text" id="range_04">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <pre>
+$("#range_05").ionRangeSlider({
+    type: "double",
+    grid: true,
+    min: -1000,
+    max: 1000,
+    from: -500,
+    to: 500,
+    step: 250
+});
+                                        </pre>
+            </div>
+            <div class="col-md-6">
+                <lable>Using step 250</lable>
+                <input type="text" id="range_05">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <pre>
+$("#range_06").ionRangeSlider({
+    type: "double",
+    grid: true,
+    min: -12.8,
+    max: 12.8,
+    from: -3.2,
+    to: 3.2,
+    step: 0.1
+});
+                                        </pre>
+            </div>
+            <div class="col-md-6">
+                <lable>Set up range with fractional values, using fractional step</lable>
+                <input type="text" id="range_06">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <pre>
+$("#range_07").ionRangeSlider({
+    type: "double",
+    grid: true,
+    from: 1,
+    to: 5,
+    values: [0, 10, 100, 1000, 10000, 100000, 1000000]
+});
+                                        </pre>
+            </div>
+            <div class="col-md-6">
+                <lable>Set up you own numbers</lable>
+                <input type="text" id="range_07">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <pre>
+$("#range_08").ionRangeSlider({
+    grid: true,
+    from: 5,
+    values: [
+        "zero", "one",
+        "two", "three",
+        "four", "five",
+        "six", "seven",
+        "eight", "nine",
+        "ten"
+    ]
+});
+                                        </pre>
+            </div>
+            <div class="col-md-6">
+                <lable>Using any strings as your values</lable>
+                <input type="text" id="range_08">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <pre>
+$("#range_09").ionRangeSlider({
+    grid: true,
+    from: 3,
+    values: [
+        "January", "February", "March",
+        "April", "May", "June",
+        "July", "August", "September",
+        "October", "November", "December"
+    ]
+});
+                                        </pre>
+            </div>
+            <div class="col-md-6">
+                <lable>One more example with strings</lable>
+                <input type="text" id="range_09">
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ion Range Slider -->
+    <script src="js/plugins/ionRangeSlider/ion.rangeSlider.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#range_01").ionRangeSlider();
+        $("#range_02").ionRangeSlider({
+            min: 100,
+            max: 1000,
+            from: 550
+        });
+
+        $("#range_03").ionRangeSlider({
+            type: "double",
+            grid: true,
+            min: 0,
+            max: 1000,
+            from: 200,
+            to: 800,
+            prefix: "$"
+        });
+
+        $("#range_04").ionRangeSlider({
+            type: "double",
+            grid: true,
+            min: -1000,
+            max: 1000,
+            from: -500,
+            to: 500
+        });
+
+        $("#range_05").ionRangeSlider({
+            type: "double",
+            grid: true,
+            min: -1000,
+            max: 1000,
+            from: -500,
+            to: 500,
+            step: 250
+        });
+
+        $("#range_06").ionRangeSlider({
+            type: "double",
+            grid: true,
+            min: -12.8,
+            max: 12.8,
+            from: -3.2,
+            to: 3.2,
+            step: 0.1
+        });
+
+        $("#range_07").ionRangeSlider({
+            type: "double",
+            grid: true,
+            from: 1,
+            to: 5,
+            values: [0, 10, 100, 1000, 10000, 100000, 1000000]
+        });
+
+        $("#range_08").ionRangeSlider({
+            grid: true,
+            from: 5,
+            values: [
+                "zero", "one",
+                "two", "three",
+                "four", "five",
+                "six", "seven",
+                "eight", "nine",
+                "ten"
+            ]
+        });
+
+        $("#range_09").ionRangeSlider({
+            grid: true,
+            from: 3,
+            values: [
+                "January", "February", "March",
+                "April", "May", "June",
+                "July", "August", "September",
+                "October", "November", "December"
+            ]
+        });
+    });
+    </script>
+</body>
+
+</html>

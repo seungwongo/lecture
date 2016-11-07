@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 7주차 수업</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/summernote/summernote.css" rel="stylesheet">
+    <style>
+    .panel-body {padding-left:25px;}
+    </style>
+</head>
+
+<body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project name</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plugins <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="001_icheck.html">iCheck</a></li>
+                            <li><a href="002_sweetalert.html">Sweet Alert</a></li>
+                            <li><a href="003_datepicker.html">Datepicker</a></li>
+                            <li><a href="004_datatable.html">Datatable</a></li>
+                            <li class="active"><a href="005_summernote.html">Summernote</a></li>
+                            <li><a href="006_rangeslider.html">iron.RangeSlider</a></li>
+                            <li><a href="007_jstree.html">jsTree</a></li>
+                            <li><a href="008_select2.html">Select2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Examples : Default</div>
+                    <div class="panel-body">
+                        <div class="summernote"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Examples : Air-mode</div>
+                    <div class="panel-body">
+                        <div class="airmode">
+                            <p>This is an Air-mode editable area.</p>
+                            <ul>
+                                <li>Select a text to reveal the toolbar.</li>
+                                <li>Edit rich document on-the-fly, so elastic!</li>
+                            </ul>
+                            <p>End of air-mode area</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Examples : Locale (KR)</div>
+                    <div class="panel-body">
+                        <div class="summernote_kr"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Examples : Locale (DE)</div>
+                    <div class="panel-body">
+                        <div class="summernote_de"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- /container -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- SUMMERNOTE -->
+    <script src="js/plugins/summernote/summernote.min.js"></script>
+    <script src="js/plugins/summernote/lang/summernote-ko-KR.js"></script>
+    <script src="js/plugins/summernote/lang/summernote-de-DE.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#summernote').addClass('active');
+        $('#summernote').parent().parent().addClass('active');
+
+        $('.summernote').summernote({
+            height: 300,
+            callbacks: {
+                onInit: function() {
+
+                },
+                onFocus: function() {
+
+                },
+                onBlur: function() {
+
+                }
+            }
+        });
+
+        $('.airmode').summernote({
+            height: 300,
+            airMode: true
+        });
+
+        $('.summernote_kr').summernote({
+            height: 300,
+            lang: 'ko-KR'
+        });
+
+        $('.summernote_de').summernote({
+            height: 300,
+            lang: 'de-DE'
+        });
+    });
+    </script>
+</body>
+
+</html>

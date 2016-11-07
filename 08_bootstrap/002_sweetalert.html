@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>웹 프론트엔드 개발 7주차 수업</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project name</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plugins <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="001_icheck.html">iCheck</a></li>
+                            <li class="active"><a href="002_sweetalert.html">Sweet Alert</a></li>
+                            <li><a href="003_datepicker.html">Datepicker</a></li>
+                            <li><a href="004_datatable.html">Datatable</a></li>
+                            <li><a href="005_summernote.html">Summernote</a></li>
+                            <li><a href="006_rangeslider.html">iron.RangeSlider</a></li>
+                            <li><a href="007_jstree.html">jsTree</a></li>
+                            <li><a href="008_select2.html">Select2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Examples</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Basic example</h4>
+                                <div class="row">
+                                    <div class="col-sm-2 text-center">
+                                        <p>
+                                            <button class="btn btn-primary sweet-1">Try It</button>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <pre class="code">swal("Here's a message!")</pre>
+                                    </div>
+                                </div>
+                                <h4>A title with a text under</h4>
+                                <div class="row">
+                                    <div class="col-sm-2 text-center">
+                                        <p>
+                                            <button class="btn btn-primary sweet-2">Try It</button>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <pre>swal("Here's a message!", "It's pretty, isn't it?")</pre>
+                                    </div>
+                                </div>
+                                <h4>A success message!</h4>
+                                <div class="row">
+                                    <div class="col-sm-2 text-center">
+                                        <p>
+                                            <button class="btn btn-primary sweet-3">Try It</button>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <pre>swal("Good job!", "You clicked the button!", "success")</pre>
+                                    </div>
+                                </div>
+                                <h4>A warning message, with a function attached to the "Confirm" button...</h4>
+                                <div class="row">
+                                    <div class="col-sm-2 text-center">
+                                        <p>
+                                            <button class="btn btn-primary sweet-4">Try It</button>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <pre>
+swal({
+  title: "Are you sure?",
+  text: "Your will not be able to recover this imaginary file!",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonClass: "btn-danger",
+  confirmButtonText: "Yes, delete it!",
+  closeOnConfirm: false
+},
+function(){
+  swal("Deleted!", "Your imaginary file has been deleted.", "success");
+});</pre>
+                                    </div>
+                                </div>
+                                <h4>...and by passing a parameter, you can execute something else for "Cancel".</h4>
+                                <div class="row">
+                                    <div class="col-sm-2 text-center">
+                                        <p>
+                                            <button class="btn btn-primary sweet-5">Try It</button>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <pre>
+swal({
+  title: "Are you sure?",
+  text: "You will not be able to recover this imaginary file!",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonClass: "btn-danger",
+  confirmButtonText: "Yes, delete it!",
+  cancelButtonText: "No, cancel plx!",
+  closeOnConfirm: false,
+  closeOnCancel: false
+},
+function(isConfirm) {
+  if (isConfirm) {
+    swal("Deleted!", "Your imaginary file has been deleted.", "success");
+  } else {
+    swal("Cancelled", "Your imaginary file is safe :)", "error");
+  }
+});</pre>
+                                    </div>
+                                </div>
+                                <h4>A message with a custom icon</h4>
+                                <div class="row">
+                                    <div class="col-sm-2 text-center">
+                                        <p>
+                                            <button class="btn btn-primary sweet-6">Try It</button>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <pre>
+swal({
+  title: "Sweet!",
+  text: "Here's a custom image.",
+  imageUrl: 'thumbs-up.jpg'
+});</pre>
+                                    </div>
+                                </div>
+                                <h4>A replacement for the "prompt" function</h4>
+                                <div class="row">
+                                    <div class="col-sm-2 text-center">
+                                        <p>
+                                            <button class="btn btn-primary sweet-7">Try It</button>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <pre>
+swal({
+  title: "An input!",
+  text: "Write something interesting:",
+  type: "input",
+  showCancelButton: true,
+  closeOnConfirm: false,
+  inputPlaceholder: "Write something"
+}, function (inputValue) {
+  if (inputValue === false) return false;
+  if (inputValue === "") {
+    swal.showInputError("You need to write something!");
+    return false
+  }
+  swal("Nice!", "You wrote: " + inputValue, "success");
+});</pre>
+                                    </div>
+                                </div>
+                                <h4>With a loader (for a AJAX requests)</h4>
+                                <div class="row">
+                                    <div class="col-sm-2 text-center">
+                                        <p>
+                                            <button class="btn btn-primary sweet-8">Try It</button>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <pre>
+swal({
+  title: "Ajax request example",
+  text: "Submit to run ajax request",
+  type: "info",
+  showCancelButton: true,
+  closeOnConfirm: false,
+  showLoaderOnConfirm: true
+}, function () {
+  setTimeout(function () {
+    swal("Ajax request finished!");
+  }, 2000);
+});</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.sweet-1').click(function() {
+            swal("Here's a message!");
+        });
+
+        $('.sweet-2').click(function() {
+            swal("Here's a message!", "It's pretty, isn't it?")
+        });
+
+        $('.sweet-3').click(function() {
+            swal("Good job!", "You clicked the button!", "success");
+        });
+
+        $('.sweet-4').click(function() {
+            swal({
+                    title: "Are you sure?",
+                    text: "You will not be able to recover this imaginary file!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-danger',
+                    confirmButtonText: 'Yes, delete it!',
+                    closeOnConfirm: false,
+                    //closeOnCancel: false
+                },
+                function() {
+                    swal("Deleted!", "Your imaginary file has been deleted!", "success");
+                });
+        });
+
+        $('.sweet-5').click(function() {
+            swal({
+                    title: "Are you sure?",
+                    text: "You will not be able to recover this imaginary file!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-danger',
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: "No, cancel plx!",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function(isConfirm) {
+                    if (isConfirm) {
+                        swal("Deleted!", "Your imaginary file has been deleted!", "success");
+                    } else {
+                        swal("Cancelled", "Your imaginary file is safe :)", "error");
+                    }
+                });
+        });
+
+        $('.sweet-6').click(function() {
+            swal({
+                title: "Sweet!",
+                text: "Here's a custom image.",
+                imageUrl: 'assets/thumbs-up.jpg'
+            });
+        });
+
+        $('.sweet-7').click(function() {
+            swal({
+                title: "An input!",
+                text: "Write something interesting:",
+                type: "input",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                animation: "slide-from-top",
+                inputPlaceholder: "Write something"
+            }, function(inputValue) {
+                if (inputValue === false) return false;
+                if (inputValue === "") {
+                    swal.showInputError("You need to write something!");
+                    return false
+                }
+                swal("Nice!", "You wrote: " + inputValue, "success");
+            });
+        });
+
+        $('.sweet-8').click(function() {
+            swal({
+                title: "Ajax request example",
+                text: "Submit to run ajax request",
+                type: "info",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                showLoaderOnConfirm: true
+            }, function() {
+                setTimeout(function() {
+                    swal("Ajax request finished!");
+                }, 2000);
+            });
+        });
+    });
+    </script>
+</body>
+
+</html>
